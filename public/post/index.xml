@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Shoaib&#39;s Box</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Shoaib&#39;s Box</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test_for_web</title>
+      <link>/post/test-for-web/</link>
+      <pubDate>Tue, 20 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/test-for-web/</guid>
+      <description>This is a test text file&amp;hellip; Lets see how this goes!</description>
+    </item>
+    
+  </channel>
+</rss>
