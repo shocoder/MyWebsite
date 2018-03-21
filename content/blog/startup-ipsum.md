@@ -1,16 +1,40 @@
 ---
-title: "Startup Ipsum"
+title: "Plant Blog"
 date: 2017-11-06T12:04:06-05:00
 tags: ['code','ipsum','words']
 ---
 
-SpaceTeam affordances quantitative vs. qualitative SpaceTeam physical computing earned media thinker-maker-doer pair programming. Bootstrapping pitch deck physical computing driven cortado human-centered design innovate human-centered design driven. Grok pitch deck fund pitch deck sticky note affordances minimum viable product integrate paradigm viral iterate. Driven fund thought leader personas workflow SpaceTeam viral pair programming physical computing intuitive 360 campaign latte bootstrapping minimum viable product. Bootstrapping physical computing responsive pitch deck SpaceTeam parallax long shadow pitch deck bootstrapping ideate.
 
-```sh
-$ complicated techie code git bash ubuntu
->>> return value init foo
-```
+Plants
+Temporal range: Mesoproterozoic–present
+Had'nArcheanProterozoicPha.
+Diversity of plants image version 5.png
+Scientific classification
+Domain:	Eukaryota
+(unranked):	Archaeplastida
+Kingdom:	Plantae
+sensu Copeland, 1956
+Divisions
+Chlorokybophyta
+Mesostigmatophyta
+Chlorobionta Kenrick & Crane 1997
+Chlorophyta
+Streptobionta Kenrick & Crane 1997
+Klebsormidiophyta
+Charophyta (stoneworts)
+ ?Chaetosphaeridiales
+Coleochaetophyta
+Zygnematophyta
+Embryobiotes Kenrick & Crane 1997(land plants)
+Marchantiophyta
+Bryophyta
+Anthocerotophyta
+†Horneophyta
+†Aglaophyta
+Tracheophyta (vascular plants)
+Synonyms
+Plants are mainly multicellular, predominantly photosynthetic eukaryotes of the kingdom Plantae. They form the clade Viridiplantae (Latin for "green plants") that includes the flowering plants, conifers and other gymnosperms, ferns, clubmosses, hornworts, liverworts, mosses and the green algae, and excludes the red and brown algae. Historically, plants were treated as one of two kingdoms including all living things that were not animals, and all algae and fungi were treated as plants. However, all current definitions of Plantae exclude the fungi and some algae, as well as the prokaryotes (the archaea and bacteria).
 
-Responsive innovate grok latte disrupt intuitive actionable insight SpaceTeam grok. Human-centered design Steve Jobs Steve Jobs pitch deck pivot disrupt fund parallax affordances venture capital pair programming. Pivot earned media user centered design affordances agile innovate actionable insight latte.
+Green plants have cell walls containing cellulose and obtain most of their energy from sunlight via photosynthesis by primary chloroplasts that are derived from endosymbiosis with cyanobacteria. Their chloroplasts contain chlorophylls a and b, which gives them their green color. Some plants are secondarily parasitic or mycotrophic and may lose the ability to produce normal amounts of chlorophyll or to photosynthesize. Plants are characterized by sexual reproduction and alternation of generations, although asexual reproduction is also common.
 
-Waterfall is so 2000 and late personas pitch deck fund big data actionable insight unicorn driven grok. Engaging disrupt ship it big data waterfall is so 2000 and late iterate workflow food-truck pitch deck thought leader. Piverate user centered design unicorn pivot earned media ship it personas moleskine pivot co-working entrepreneur integrate. Affordances actionable insight ship it workflow integrate innovate integrate piverate pivot actionable insight innovate thought leader. Waterfall is so 2000 and late viral viral responsive Steve Jobs driven physical computing thinker-maker-doer piverate pivot.
+There are about 300–315 thousand species of plants, of which the great majority, some 260–290 thousand, are seed plants (see the table below).[5] Green plants provide a substantial proportion of the world's molecular oxygen[6] and are the basis of most of Earth's ecosystems, especially on land. Plants that produce grain, fruit and vegetables form humankind's basic foodstuffs, and have been domesticated for millennia. Plants have many cultural and other uses as ornaments, building materials, writing material and in great variety, they have been the source of medicines and drugs. The scientific study of plants is known as botany, a branch of biology.

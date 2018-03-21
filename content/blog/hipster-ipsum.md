@@ -1,13 +1,40 @@
 ---
-title: "Hipster Ipsum"
+title: "Another Plant blog"
 date: 2017-11-13T11:58:39-05:00
 tags: ['ipsum','words']
 ---
 
-Occupy mlkshk kale chips woke, listicle locavore next level fingerstache glossier aesthetic man braid before they sold out kitsch prism. Cred copper mug freegan, flannel YOLO single-origin coffee skateboard artisan four loko church-key man bun. Synth literally gastropub, kombucha chillwave helvetica offal truffaut church-key freegan pop-up gentrify narwhal. Kombucha viral vexillologist green juice. Slow-carb hoodie mumblecore tumeric tattooed meditation, lo-fi fap cred affogato forage whatever austin. Shabby chic direct trade migas, brunch gochujang sriracha chambray fanny pack 8-bit mustache letterpress. Street art umami tattooed, glossier selfies 90's kale chips cred cardigan taxidermy seitan distillery migas.
 
-Chicharrones ethical activated charcoal cardigan vegan copper mug. Ennui messenger bag 90's street art art party etsy. Four loko freegan flannel flexitarian, slow-carb hot chicken vexillologist tote bag church-key tilde pinterest. Ethical hell of retro, mlkshk twee yr selfies asymmetrical venmo. Photo booth mixtape tattooed pop-up, synth flexitarian paleo. DIY cornhole sustainable, gochujang whatever slow-carb hexagon tilde. Bitters XOXO kombucha af.
+Plants
+Temporal range: Mesoproterozoic–present
+Had'nArcheanProterozoicPha.
+Diversity of plants image version 5.png
+Scientific classification
+Domain:	Eukaryota
+(unranked):	Archaeplastida
+Kingdom:	Plantae
+sensu Copeland, 1956
+Divisions
+Chlorokybophyta
+Mesostigmatophyta
+Chlorobionta Kenrick & Crane 1997
+Chlorophyta
+Streptobionta Kenrick & Crane 1997
+Klebsormidiophyta
+Charophyta (stoneworts)
+ ?Chaetosphaeridiales
+Coleochaetophyta
+Zygnematophyta
+Embryobiotes Kenrick & Crane 1997(land plants)
+Marchantiophyta
+Bryophyta
+Anthocerotophyta
+†Horneophyta
+†Aglaophyta
+Tracheophyta (vascular plants)
+Synonyms
+Plants are mainly multicellular, predominantly photosynthetic eukaryotes of the kingdom Plantae. They form the clade Viridiplantae (Latin for "green plants") that includes the flowering plants, conifers and other gymnosperms, ferns, clubmosses, hornworts, liverworts, mosses and the green algae, and excludes the red and brown algae. Historically, plants were treated as one of two kingdoms including all living things that were not animals, and all algae and fungi were treated as plants. However, all current definitions of Plantae exclude the fungi and some algae, as well as the prokaryotes (the archaea and bacteria).
 
-Organic neutra brooklyn, literally helvetica air plant celiac chia sustainable sriracha. Jean shorts typewriter chambray 90's farm-to-table, man bun tofu VHS. Messenger bag paleo plaid meditation intelligentsia forage, lomo jianbing hell of. Waistcoat synth tacos direct trade truffaut kogi. Gentrify street art woke, everyday carry whatever gastropub PBR&B fixie chambray kale chips af photo booth shoreditch. Thundercats hella cold-pressed, ethical vape irony pitchfork mixtape kombucha heirloom viral hell of deep v banh mi hoodie. Craft beer slow-carb raw denim, ugh asymmetrical artisan banh mi fingerstache trust fund poke bespoke green juice man bun mustache 3 wolf moon.
+Green plants have cell walls containing cellulose and obtain most of their energy from sunlight via photosynthesis by primary chloroplasts that are derived from endosymbiosis with cyanobacteria. Their chloroplasts contain chlorophylls a and b, which gives them their green color. Some plants are secondarily parasitic or mycotrophic and may lose the ability to produce normal amounts of chlorophyll or to photosynthesize. Plants are characterized by sexual reproduction and alternation of generations, although asexual reproduction is also common.
 
-Seitan tumblr freegan, readymade health goth tofu letterpress mixtape. Viral microdosing roof party, narwhal paleo photo booth cronut fingerstache. Bitters ramps snackwave listicle, taxidermy skateboard williamsburg. Vexillologist irony ennui, vegan fap 8-bit street art hashtag bicycle rights thundercats woke fashion axe aesthetic. Before they sold out umami forage disrupt, fashion axe cardigan ugh kitsch small batch. Kitsch try-hard vexillologist, semiotics disrupt shabby chic schlitz. Cardigan deep v hammock yuccie craft beer wayfarers, bespoke shabby chic keytar vape venmo semiotics iPhone cray.
+There are about 300–315 thousand species of plants, of which the great majority, some 260–290 thousand, are seed plants (see the table below).[5] Green plants provide a substantial proportion of the world's molecular oxygen[6] and are the basis of most of Earth's ecosystems, especially on land. Plants that produce grain, fruit and vegetables form humankind's basic foodstuffs, and have been domesticated for millennia. Plants have many cultural and other uses as ornaments, building materials, writing material and in great variety, they have been the source of medicines and drugs. The scientific study of plants is known as botany, a branch of biology.
