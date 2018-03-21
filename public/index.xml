@@ -12,22 +12,22 @@
     
     
     <item>
-      <title>Photography</title>
+      <title>Pictures</title>
       <link>/projects/photography/</link>
       <pubDate>Mon, 13 Nov 2017 12:21:21 -0500</pubDate>
       
       <guid>/projects/photography/</guid>
-      <description>Sometimes I take pictures. This project is about the pictures I take. Sometimes, they are pictures of cats.</description>
+      <description>Sometimes I take pictures. I hate cats.</description>
     </item>
     
     <item>
-      <title>Design</title>
+      <title>Plants</title>
       <link>/projects/design/</link>
       <pubDate>Mon, 13 Nov 2017 12:21:16 -0500</pubDate>
       
       <guid>/projects/design/</guid>
-      <description>This theme was designed by Vicky Lai. Go on, explore! 💪
-If you want to use it for your website, check out the section at the bottom of the main page. 👍</description>
+      <description>I love plants. Explore! 💪
+IYes, I love them👍</description>
     </item>
     
     <item>
@@ -36,8 +36,7 @@ If you want to use it for your website, check out the section at the bottom of t
       <pubDate>Mon, 13 Nov 2017 12:21:11 -0500</pubDate>
       
       <guid>/projects/writing/</guid>
-      <description>Aromatic aroma con panna, crema so coffee robust coffee barista, café au lait trifecta that strong blue mountain cortado aftertaste. Aroma extraction french press, skinny sweet, blue mountain cup roast barista, beans, extra cappuccino mug crema strong.
-To go viennese cream to go, flavour, so mocha as, carajillo iced et a siphon froth. Aged, eu, cup, brewed aroma kopi-luwak, coffee, id viennese french press brewed grounds acerbic froth. Decaffeinated acerbic, spoon beans seasonal, french press café au lait mazagran roast chicory, pumpkin spice galão as fair trade, dark irish cup ristretto half and half whipped shop.</description>
+      <description>Not a huge fan of writing&amp;hellip;..</description>
     </item>
     
     <item>
@@ -82,8 +81,7 @@ To go viennese cream to go, flavour, so mocha as, carajillo iced et a siphon fro
       <pubDate>Thu, 09 Mar 2017 13:23:28 +0800</pubDate>
       
       <guid>/contact/</guid>
-      <description>In the Contact section of Introduction, you may optionally display the current time in your preferred timezone.
-This lets visitors know what sort of response time to expect when they contact you. The timezone is easily set in the config file.</description>
+      <description></description>
     </item>
     
     <item>
@@ -92,8 +90,8 @@ This lets visitors know what sort of response time to expect when they contact y
       <pubDate>Thu, 09 Mar 2017 13:19:25 +0800</pubDate>
       
       <guid>/about/</guid>
-      <description> This is Introduction, a minimal scrolling website theme made for Hugo.
-Features  Responsive display on any size screen Smooth fade-in on load with CSS3 Smooth scrolling to page sections from navigation Light and Dark themes Projects section with any number of projects: configurable as a photo gallery, popup with details, or external links Blog section with optionally included Latest Post, on the main page or as a separate section Styled Markdown throughout with support for HighlightJS  </description>
+      <description> I love Chai.
+Interests  Meat Music Sleep Barcelona  </description>
     </item>
     
     <item>
