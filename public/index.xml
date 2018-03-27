@@ -42,21 +42,25 @@ Plants Temporal range: Mesoproterozoic–present Had&amp;rsquo;nArcheanProterozo
     </item>
     
     <item>
+      <title>Programming: The artist and the hustler</title>
+      <link>/blog/coffee-ipsum/</link>
+      <pubDate>Mon, 26 Mar 2018 12:04:16 -0500</pubDate>
+      
+      <guid>/blog/coffee-ipsum/</guid>
+      <description>In the world of programming, I have come across 2 very distinct kinds of people who I refer as
+ The Artists
+ The Hustlers
+  In this post, I am going to use the R programming language as reference to demonstrate features of the mentioned programmers extraordinaire.
+Heads up: I am a proud hustler who loves visiting the gallery and works on his art in the shadows. Any bias is definitely subject to scrutiny by current artists.</description>
+    </item>
+    
+    <item>
       <title>Test_for_web</title>
       <link>/post/test-for-web/</link>
       <pubDate>Tue, 20 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/test-for-web/</guid>
       <description>This is a test text file&amp;hellip; Lets see how this goes!</description>
-    </item>
-    
-    <item>
-      <title>Coffee Ipsum</title>
-      <link>/blog/coffee-ipsum/</link>
-      <pubDate>Wed, 01 Nov 2017 12:04:16 -0500</pubDate>
-      
-      <guid>/blog/coffee-ipsum/</guid>
-      <description>Aromatic aroma con panna, crema so coffee robust coffee barista, café au lait trifecta that strong blue mountain cortado aftertaste. Aroma extraction french press, skinny sweet, blue mountain cup roast barista, beans, extra cappuccino mug crema strong. Americano caffeine white, con panna saucer sit, con panna eu, carajillo aftertaste kopi-luwak, body aftertaste cup single origin café au lait saucer. Macchiato java sweet arabica, turkish cup, eu flavour mug extraction white cortado saucer est white brewed instant, rich, barista breve cappuccino barista organic.</description>
     </item>
     
     <item>
@@ -84,9 +88,10 @@ Interests  Meat Music Sleep Barcelona  </description>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
       <guid>/blog/2015-07-23-r-rmarkdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+      <description>R Markdown Few tips to start being more “artsy”
+1. Work on the quality of your code. Picture every line you write being played at a cinema near you.
+2. Invest time in learning how a language actually works and start contributing to the community.
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.</description>
     </item>
     
   </channel>

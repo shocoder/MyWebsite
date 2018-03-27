@@ -18,13 +18,13 @@
   </url>
   
   <url>
-    <loc>/post/test-for-web/</loc>
-    <lastmod>2018-03-20T00:00:00+00:00</lastmod>
+    <loc>/blog/coffee-ipsum/</loc>
+    <lastmod>2018-03-26T12:04:16-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/coffee-ipsum/</loc>
-    <lastmod>2017-11-01T12:04:16-05:00</lastmod>
+    <loc>/post/test-for-web/</loc>
+    <lastmod>2018-03-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -43,8 +43,14 @@
   </url>
   
   <url>
+    <loc>/tags/artists/</loc>
+    <lastmod>2018-03-26T12:04:16-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/blog/</loc>
-    <lastmod>2017-11-01T12:04:16-05:00</lastmod>
+    <lastmod>2018-03-26T12:04:16-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -54,20 +60,8 @@
   </url>
   
   <url>
-    <loc>/tags/coffee/</loc>
-    <lastmod>2017-11-01T12:04:16-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/images/</loc>
-    <lastmod>2017-11-01T12:04:16-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/ipsum/</loc>
-    <lastmod>2017-11-01T12:04:16-05:00</lastmod>
+    <loc>/tags/hustlers/</loc>
+    <lastmod>2018-03-26T12:04:16-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -80,6 +74,12 @@
   <url>
     <loc>/post/</loc>
     <lastmod>2018-03-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/programmers/</loc>
+    <lastmod>2018-03-26T12:04:16-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -115,7 +115,7 @@
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2017-11-01T12:04:16-05:00</lastmod>
+    <lastmod>2018-03-26T12:04:16-05:00</lastmod>
     <priority>0</priority>
   </url>
   
