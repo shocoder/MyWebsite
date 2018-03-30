@@ -4,6 +4,7 @@ date: 2018-03-26T12:04:16-05:00
 tags: ['programmers', 'artists','hustlers']
 ---
 
+
 In the world of programming, I have come across 2 very distinct kinds of people who I refer as 
 
 1.	The Artists  
@@ -29,6 +30,9 @@ The Hustler
 
 
 ![Sample image](/img/workday.jpg)
+
+•	Dsa
+•	dasda
 
 
 Although artists are the lifelines which allow the open-source community to thrive, Hustlers play a major role in propagating the language and offer versatility to a team. They present more complex challenges for the artists to solve, while they save the world with the available tools.  

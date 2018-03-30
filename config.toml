@@ -1,7 +1,7 @@
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 baseurl             = "/"   # Your domain name. Must end with "/"
 languageCode        = "en-us"
-title               = "Shoaib's Blog"
+title               = "Shoaib's Home"
 theme = "hugo-theme-introduction"
 enforce_ssl         = false
 builddrafts         = false                             # Include pages with draft status of true
@@ -11,11 +11,11 @@ canonifyurls        = true                              # Turns relative urls in
 
 [params]
     bloghead            = "Shoaib's Blog"                        # Full name shows on blog post pages
-    firstname           = "Shoaib"                # First name shows in introduction on main page
-    tagline             = "Data Analyst - Copart"       # Appears after the introduction
+    firstname           = "Shoaib Abdul"                # First name shows in introduction on main page
+    tagline             = "Data Science • Business Strategy • Copart"       # Appears after the introduction
     introheight         = "medium"                       # Input either 'medium' or 'large' or 'fullheight'
     themestyle          = "light"                        # Choose 'light' or 'dark'
-    avatar              = "img/DP.jpg"             # Path to image in static folder eg. img/avatar.png, or comment out to remove
+    avatar              = "img/pro.jpg"             # Path to image in static folder eg. img/avatar.png, or comment out to remove
     email               = "shoaibsbox@outlook.com"         # Shows in contact section, or leave blank to omit
     localtime           = true                          # Show your current local time in contact section
     timezone            = "America/Chicago"         # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
