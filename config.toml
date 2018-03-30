@@ -7,14 +7,14 @@ enforce_ssl         = false
 builddrafts         = false                             # Include pages with draft status of true
 canonifyurls        = true                              # Turns relative urls into absolute urls
 # disqusshortname   = "xxx"                             # Enable Disqus for comments
-# googleAnalytics   = "xxx"
+googleAnalytics   = "UA-116695891-1"
 
 [params]
     bloghead            = "Shoaib's Blog"                        # Full name shows on blog post pages
     firstname           = "Shoaib Abdul"                # First name shows in introduction on main page
     tagline             = "Data Science • Business Strategy • Copart"       # Appears after the introduction
     introheight         = "medium"                       # Input either 'medium' or 'large' or 'fullheight'
-    themestyle          = "light"                        # Choose 'light' or 'dark'
+    themestyle          = "dark"                        # Choose 'light' or 'dark'
     avatar              = "img/pro.jpg"             # Path to image in static folder eg. img/avatar.png, or comment out to remove
     email               = "shoaibsbox@outlook.com"         # Shows in contact section, or leave blank to omit
     localtime           = true                          # Show your current local time in contact section
