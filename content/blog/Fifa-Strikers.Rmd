@@ -11,7 +11,7 @@ library(corrplot)
 library(magick)
 library(dplyr)
 ```
-# Premise
+# Premise...
 
 Recently, I recently came across a very interesting dataset on Kaggle which contains attributes of various world footballers. 
 As a huge fan of strikers like Didier Drogba, Diego Forlan and Ronaldo (the Brazilian one) - I decided to explore the impact of age on the attributes of center forwards or strikers who are nearing the end of their careers or to say the least, dont qualify as 'youngsters' anymore.
