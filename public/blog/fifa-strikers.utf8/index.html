@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Website description.">
+
+<base href="/">
+<title>
+
+
+     Fifa_Strikers 
+
+</title>
+<link rel="canonical" href="/blog/fifa-strikers.utf8/">
+
+
+
+
+
+
+<script
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+
+
+
+    <link rel="stylesheet" href="css/dark-style.css">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="img/fav.ico"
+
+>
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-116695891-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+</head>
+
+<body>
+
+<div class="section" id="top">
+
+    <div class="container hero  fade-in one ">
+    <h1 class="bold-title is-1">Shoaib&#39;s Blog</h1>
+    </div>
+
+
+<div class="section  fade-in two ">
+
+    <div class="container">
+    <hr>
+<nav class="nav nav-center">
+    <span id="nav-toggle" class="nav-toggle"  onclick="document.getElementById('nav-menu').classList.toggle('is-active');">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <div id="nav-menu" class="nav-left nav-menu">
+      <span class="nav-item">
+        <a href="/">Main</a>
+      </span>
+      <span class="nav-item">
+        <a href="/#about">About</a> 
+      </span>
+      <span class="nav-item">
+        <a href="/blog">Back to blog</a>
+      </span> 
+      <span class="nav-item">
+        <a href="/#contact">Contact</a>
+      </span>
+    
+      <span class="nav-item">
+        <a href="/index.xml"><i class="fa fa-rss"></i></a>
+      </span>
+    
+    </div>
+</nav>
+<hr>
+    </div>
+
+    <div class="container  fade-in two ">
+        <h2 class="title is-1 top-pad strong-post-title"><a href="/blog/fifa-strikers.utf8/">Fifa_Strikers</a></h2>
+            <div class="post-data">
+                Jan 1, 0001 |
+                4 minutes read
+            </div>
+
+            
+                <div class="blog-share">
+                Share this:
+                
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20Fifa_Strikers%20%2fblog%2ffifa-strikers.utf8%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+                </a>
+                
+                 
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=%2fblog%2ffifa-strikers.utf8%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+                </a>
+                
+                
+                
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=%2fblog%2ffifa-strikers.utf8%2f"
+                onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+                </a>
+                
+                </div>
+            
+
+    </div>
+
+    <div class="container markdown  fade-in two  top-pad">
+        
+
+<h2 id="r-markdown">R Markdown</h2>
+
+<pre><code class="language-r">footballers &lt;- feather::read_feather(&quot;/Users/shabdul/Desktop/Blog_Images/complete.feather&quot;)
+nrow(footballers)
+</code></pre>
+
+<pre><code>## [1] 17994
+</code></pre>
+
+<p>It contains 17,994 footballers from differnet nations and clubs</p>
+
+<pre><code class="language-r">strikers &lt;- footballers[(footballers$prefers_st ==TRUE |
+                           footballers$prefers_cf ==TRUE),
+                        ]
+nrow(strikers)
+</code></pre>
+
+<pre><code>## [1] 3409
+</code></pre>
+
+<p>There are 3,409 strikers</p>
+
+<h2 id="age-distribution">Age Distribution</h2>
+
+<p>Let&rsquo;s analyze age of strikers</p>
+
+<pre><code class="language-r">plot_ly(x = strikers$age, opacity = 0.6, type = &quot;histogram&quot;) %&gt;%
+  layout(paper_bgcolor = '#dfe3ee',
+         barmode=&quot;overlay&quot;,
+         title = &quot;Age distribution of strikers&quot;,
+         xaxis = list(title = &quot;Age&quot;),
+         yaxis = list(title = &quot;Number of Strikers&quot;)
+  )
+</code></pre>
+
+<p>preserve315537fff95531dd</p>
+
+<pre><code class="language-r">summary(strikers$age)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   16.00   21.00   25.00   24.86   28.00   38.00
+</code></pre>
+
+<p>We see the 3rd quartile for strikers age is 28</p>
+
+<pre><code class="language-r"># Let's look at strikers above or equal to 28 years of age
+strikers_28orAbove &lt;- footballers[(footballers$prefers_st ==TRUE |
+                                     footballers$prefers_cf ==TRUE)
+                                  &amp; footballers$age &gt;= 28 ,
+                                  ]
+nrow(strikers_28orAbove)
+</code></pre>
+
+<pre><code>## [1] 975
+</code></pre>
+
+<p>We see 975 strikers aged 28 or more</p>
+
+<p>Let&rsquo;s look at correlation between various skill atttributes of these strikers</p>
+
+<pre><code class="language-r"># Let's try to look at the correlation between the skill atttributes of these strikers
+correlation_dataframe &lt;- as.data.frame(strikers_28orAbove[,sapply(strikers_28orAbove, function(x) is.numeric(x))])
+drops &lt;- c(&quot;ram&quot;,&quot;rcm&quot;,&quot;rdm&quot;,&quot;rcb&quot;,&quot;rwb&quot;,&quot;cam&quot;,&quot;cdm&quot;,
+           &quot;lwb&quot;,&quot;lam&quot;,&quot;lcm&quot;,&quot;ldm&quot;,&quot;lcb&quot;,
+           &quot;rw&quot;,&quot;rf&quot;,&quot;rs&quot;,&quot;rm&quot;,&quot;rb&quot;,&quot;st&quot;,&quot;lw&quot;,&quot;cf&quot;,&quot;cm&quot;,&quot;lm&quot;,&quot;lb&quot;,&quot;cb&quot;,&quot;ls&quot;,&quot;lf&quot;,&quot;gk&quot;,
+           &quot;gk_diving&quot;,&quot;gk_handling&quot;,&quot;gk_kicking&quot;,&quot;gk_positioning&quot;,&quot;gk_reflexes&quot;,
+           &quot;ID&quot;,&quot;eur_release_clause&quot;,&quot;potential&quot;,
+           &quot;def&quot;,&quot;marking&quot;,&quot;interceptions&quot;,
+           &quot;sliding_tackle&quot;,&quot;standing_tackle&quot;
+)
+correlation_dataframe &lt;- correlation_dataframe[ , !(names(correlation_dataframe) %in% drops)]
+# Look at correlation plot
+M &lt;- cor(correlation_dataframe)
+corrplot(M, method = &quot;circle&quot;)
+</code></pre>
+
+<p><img src="Fifa-Strikers_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+
+<p>You notice some obvious trends here. Shoaib will call out a couple of  them here&hellip;. Pace, Stamina, Composure, Penalties and Freekicks seem interesting</p>
+
+<pre><code class="language-r">top_3_pace &lt;- strikers_28orAbove %&gt;%
+  filter(rank(desc(pac))&lt;=3)
+img &lt;- c(image_read(top_3_pace$flag[1]), image_read(top_3_pace$flag[2]), image_read(top_3_pace$flag[3]))
+image_append(image_scale(img, &quot;x100&quot;))
+</code></pre>
+
+<p><img src="Fifa-Strikers_files/figure-html/unnamed-chunk-7-1.png" width="202" /></p>
+
+<pre><code class="language-r">top_3_stamina&lt;- strikers_28orAbove %&gt;%
+  filter(rank(desc(stamina))&lt;=3)
+img &lt;- c(image_read(top_3_stamina$flag[1]), image_read(top_3_stamina$flag[2]), image_read(top_3_stamina$flag[3]))
+image_append(image_scale(img, &quot;x100&quot;))
+</code></pre>
+
+<p><img src="Fifa-Strikers_files/figure-html/unnamed-chunk-8-1.png" width="202" /></p>
+
+<pre><code class="language-r">plot_ly(strikers_28orAbove, x = ~age) %&gt;%
+  add_markers(y = ~stamina, text = ~name, color = I(&quot;red&quot;), opacity=0.5, name = &quot;Stamina&quot;, showlegend = TRUE) %&gt;%
+  add_markers(y = ~pac, text = ~name, color = I(&quot;blue&quot;), opacity=0.5, name = &quot;Pace&quot;, showlegend = TRUE) %&gt;%
+  add_lines(y = ~fitted(loess(pac ~ age)),
+            line = list(color = '#1370D3',opacity=1),
+            name = &quot;Pace Trend&quot;, showlegend = TRUE) %&gt;%
+  add_lines(y = ~fitted(loess(stamina ~ age)),
+            line = list(color = '#FF3F33',opacity=1),
+            name = &quot;Stamina Trend&quot;, showlegend = TRUE) %&gt;%
+  layout(xaxis = list(title = 'Age'),
+         yaxis = list(title = 'Pace / Stamina'),
+         title = &quot;Impact of Age on Pace and Stamina&quot;,
+         legend = list(x = 0.80, y = 0.90))
+</code></pre>
+
+<p>preservedaa52dd7ab747262</p>
+
+<pre><code class="language-r">top_2_penalties &lt;- strikers_28orAbove %&gt;%
+  filter(rank(desc(penalties))&lt;=3)
+img &lt;- c(image_read(top_2_penalties$flag[1]), image_read(top_2_penalties$flag[2]))
+image_append(image_scale(img, &quot;x100&quot;))
+</code></pre>
+
+<p><img src="Fifa-Strikers_files/figure-html/unnamed-chunk-10-1.png" width="135" /></p>
+
+<pre><code class="language-r">top_3_free_kick_accuracy&lt;- strikers_28orAbove %&gt;%
+  filter(rank(desc(free_kick_accuracy))&lt;=3)
+img &lt;- c(image_read(top_3_free_kick_accuracy$flag[1]), image_read(top_3_free_kick_accuracy$flag[2]), image_read(top_3_free_kick_accuracy$flag[3]))
+image_append(image_scale(img, &quot;x100&quot;))
+</code></pre>
+
+<p><img src="Fifa-Strikers_files/figure-html/unnamed-chunk-11-1.png" width="202" /></p>
+
+<pre><code class="language-r">plot_ly(strikers_28orAbove, x = ~age) %&gt;%
+  add_markers(y = ~penalties, text = ~name, color = I(&quot;red&quot;), opacity=0.5, name = &quot;Penalties&quot;, showlegend = TRUE) %&gt;%
+  add_markers(y = ~free_kick_accuracy, text = ~name, color = I(&quot;blue&quot;), opacity=0.5, name = &quot;Free kick accuracy&quot;, showlegend = TRUE) %&gt;%
+  add_lines(y = ~fitted(loess(penalties ~ age)),
+            line = list(color = '#1370D3',opacity=1),
+            name = &quot;Penalties Trend&quot;, showlegend = TRUE) %&gt;%
+  add_lines(y = ~fitted(loess(free_kick_accuracy ~ age)),
+            line = list(color = '#FF3F33',opacity=1),
+            name = &quot;Free kick_accuracy Trend&quot;, showlegend = TRUE) %&gt;%
+  layout(xaxis = list(title = 'Age'),
+         yaxis = list(title = 'Penalties / Free_kick_accuracy'),
+         title = &quot;Impact of Age on Penalties and Free kick accuracy&quot;,
+         legend = list(x = 0.80, y = 0.90))
+</code></pre>
+
+<p>preserve5a59911a305d6913</p>
+
+<pre><code class="language-r">top_3_composure&lt;- strikers_28orAbove %&gt;%
+  filter(rank(desc(composure))&lt;=3)
+img &lt;- c(image_read(top_3_composure$flag[1]), image_read(top_3_composure$flag[2]), image_read(top_3_composure$flag[3]))
+image_append(image_scale(img, &quot;x100&quot;))
+</code></pre>
+
+<p><img src="Fifa-Strikers_files/figure-html/unnamed-chunk-13-1.png" width="202" /></p>
+
+<pre><code class="language-r">top_3_aggression&lt;- strikers_28orAbove %&gt;%
+  filter(rank(desc(aggression))&lt;=3)
+img &lt;- c(image_read(top_3_aggression$flag[1]), image_read(top_3_aggression$flag[2]), image_read(top_3_aggression$flag[3]))
+image_append(image_scale(img, &quot;x100&quot;))
+</code></pre>
+
+<p><img src="Fifa-Strikers_files/figure-html/unnamed-chunk-14-1.png" width="202" /></p>
+
+<pre><code class="language-r">plot_ly(strikers_28orAbove, x = ~age) %&gt;%
+  add_markers(y = ~composure, text = ~name, color = I(&quot;red&quot;), opacity=0.5, name = &quot;Composure&quot;, showlegend = TRUE) %&gt;%
+  add_markers(y = ~aggression, text = ~name, color = I(&quot;blue&quot;), opacity=0.5, name = &quot;Aggression&quot;, showlegend = TRUE) %&gt;%
+  add_lines(y = ~fitted(loess(composure ~ age)),
+            line = list(color = '#1370D3',opacity=1),
+            name = &quot;Composure Trend&quot;, showlegend = TRUE) %&gt;%
+  add_lines(y = ~fitted(loess(aggression ~ age)),
+            line = list(color = '#FF3F33',opacity=1),
+            name = &quot;Aggression Trend&quot;, showlegend = TRUE) %&gt;%
+  layout(xaxis = list(title = 'Age'),
+         yaxis = list(title = 'Composure / Aggression'),
+         title = &quot;Impact of Age on Composure and Aggression&quot;,
+         legend = list(x = 0.80, y = 0.90))
+</code></pre>
+
+<p>preserve89aac988071c492e</p>
+
+<pre><code class="language-r">strikers_above25_spread &lt;- strikers_28orAbove %&gt;% group_by(nationality)  %&gt;% summarise(n = n()) %&gt;% arrange(desc(n))
+head(arrange(strikers_above25_spread, desc(n)), n=10)
+</code></pre>
+
+<pre><code>## # A tibble: 10 x 2
+##    nationality     n
+##    &lt;chr&gt;       &lt;int&gt;
+##  1 Brazil         79
+##  2 England        75
+##  3 Argentina      73
+##  4 Germany        49
+##  5 Italy          49
+##  6 Spain          48
+##  7 Chile          39
+##  8 France         39
+##  9 Colombia       34
+## 10 Japan          34
+</code></pre>
+
+<pre><code class="language-r">df &lt;- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv',stringsAsFactors = FALSE)
+# adding 13 manual entries which are missing from the csv
+df &lt;- rbind(df[,c('COUNTRY','CODE')],c(&quot;England&quot;,&quot;GBR&quot;),
+            c(&quot;Bosnia Herzegovina&quot;,&quot;BIH&quot;),
+            c(&quot;DR Congo&quot;,&quot;COD&quot;),
+            c(&quot;Ivory Coast&quot;,&quot;CIV&quot;),
+            c(&quot;Cape Verde&quot;,&quot;CPV&quot;),
+            c(&quot;Republic of Ireland&quot;,&quot;IRL&quot;),
+            c(&quot;FYR Macedonia&quot;,&quot;MKD&quot;),
+            c(&quot;Korea Republic&quot;,&quot;KOR&quot;),
+            c(&quot;Congo&quot;,&quot;COG&quot;),
+            c(&quot;China PR&quot;,&quot;CHN&quot;),
+            c(&quot;Guinea Bissa&quot;,&quot;GNB&quot;),
+            c(&quot;Trinidad &amp; Tobago&quot;,&quot;TTO&quot;),
+            c(&quot;Gambia&quot;,&quot;GMB&quot;),
+            c(&quot;Antigua &amp; Barbuda&quot;,&quot;ATG&quot;)
+)
+location_mapping &lt;- df %&gt;% group_by(COUNTRY)  %&gt;% summarise(n = CODE)
+location_mapping &lt;- data.frame(location_mapping)
+strikers_above25_spread &lt;- data.frame(strikers_above25_spread)
+strikers_above25_spread$code &lt;- location_mapping$n[match(strikers_above25_spread$nationality,location_mapping$COUNTRY)]
+# adding light grey boundaries
+l &lt;- list(color = toRGB(&quot;grey&quot;), width = 0.5)
+# specifying map projection/options
+g &lt;- list(
+  showframe = FALSE,
+  showcoastlines = FALSE,
+  projection = list(type = 'Mercator')
+)
+p &lt;- plot_geo(strikers_above25_spread) %&gt;%
+  add_trace(
+    z = ~n, color = ~n, colors = 'Blues',
+    text = ~nationality, locations = ~code, marker = list(line = l)
+  ) %&gt;%
+  colorbar(title = 'Population', tickprefix = '') %&gt;%
+  layout(
+    title = 'Population Spread of Strikers above 25',
+    geo = g
+  )
+p
+</code></pre>
+
+<p>preserve66aa620afb3965b7</p>
+
+    </div>
+
+    <div class="disqus">
+        
+    </div>
+
+<div class="container has-text-centered top-pad">
+<hr>
+<a href="/blog/fifa-strikers.utf8/#top"><i class="fa fa-arrow-up"></i></a>
+<hr>
+</div>
+
+<div class="section" id="footer">
+    <div class="container has-text-centered">
+        
+        
+        
+    </div>
+</div>
+
+</div>
+</div>
+
+
+<script>
+$('a[href^="\/blog\/fifa-strikers.utf8\/#"]').click(function(e) {
+    e.preventDefault();
+    var target = this.hash;
+    $('html, body').animate({
+    scrollTop: $(target).offset().top
+    }, 500);
+    return false;
+})
+</script>
+
+</body>

@@ -42,21 +42,12 @@ Plants Temporal range: Mesoproterozoic–present Had&amp;rsquo;nArcheanProterozo
     </item>
     
     <item>
-      <title>Programming: The artist and the hustler</title>
-      <link>/blog/coffee-ipsum/</link>
-      <pubDate>Mon, 26 Mar 2018 12:04:16 -0500</pubDate>
+      <title>Is age just a number for strikers in world football?</title>
+      <link>/blog/fifa-strikers/</link>
+      <pubDate>Sun, 01 Apr 2018 12:04:16 -0500</pubDate>
       
-      <guid>/blog/coffee-ipsum/</guid>
-      <description>• Dsa • dasda</description>
-    </item>
-    
-    <item>
-      <title>Test_for_web</title>
-      <link>/post/test-for-web/</link>
-      <pubDate>Tue, 20 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/test-for-web/</guid>
-      <description>This is a test text file&amp;hellip; Lets see how this goes!</description>
+      <guid>/blog/fifa-strikers/</guid>
+      <description>Premise Recently, I recently came across a very interesting dataset on Kaggle which contains attributes of various world footballers. As a huge fan of strikers like Didier Drogba, Diego Forlan and Ronaldo (the Brazilian one) - I decided to explore the impact of age on the attributes of center forwards or strikers who are nearing the end of their careers or to say the least, dont qualify as ‘youngsters’ anymore.</description>
     </item>
     
     <item>
@@ -74,31 +65,9 @@ Plants Temporal range: Mesoproterozoic–present Had&amp;rsquo;nArcheanProterozo
       <pubDate>Thu, 09 Mar 2017 13:19:25 +0800</pubDate>
       
       <guid>/about/</guid>
-      <description> I love Chai.
-Interests  Meat Music Sleep Barcelona  </description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/blog/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/blog/2015-07-23-r-rmarkdown/</guid>
-      <description>R Markdown https://crisp.shinyapps.io/087-crandash/
-https://gallery.shinyapps.io/087-crandash/
-Few tips to start being more “artsy”
-1. Work on the quality of your code. Picture every line you write being played at a cinema near you.
-2. Invest time in learning how a language actually works and start contributing to the community.
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.</description>
-    </item>
-    
-    <item>
-      <title>Fifa_Strikers</title>
-      <link>/blog/fifa-strikers/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/fifa-strikers/</guid>
-      <description> Fifa_Strikers  </description>
+      <description>I’m a Data Analyst at Copart, a provider of online vehicle auction and remarketing services across the world. My interests include data analysis, machine learning, business strategy, database development and programming in R, SQL and Java.
+I previously worked as a consultant for Microsoft, and received a Masters degree in Information Technology Management from the University of Texas at Dallas.
+Hobbies  Building websites Kickboxing Gaming  About This Site This site is powered by RBlogdown, an amazing package built by Yihui Xie and uses the Hugo theme &amp;ldquo;Introduction&amp;rdquo; created by Vicky Lai.</description>
     </item>
     
   </channel>

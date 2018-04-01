@@ -1,10 +1,9 @@
 ---
-title: "Fifa_Strikers"
+title: "Is age just a number for strikers in world football?"
 author: "Shoaib"
-date: "4/1/2018"
+date: 2018-04-01T12:04:16-05:00
 output: html_document
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(plotly)
@@ -12,15 +11,27 @@ library(corrplot)
 library(magick)
 library(dplyr)
 ```
+# Premise
 
-## R Markdown
+Recently, I recently came across a very interesting dataset on Kaggle which contains attributes of various world footballers. 
+As a huge fan of strikers like Didier Drogba, Diego Forlan and Ronaldo (the Brazilian one) - I decided to explore the impact of age on the attributes of center forwards or strikers who are nearing the end of their careers or to say the least, dont qualify as 'youngsters' anymore.
 
+If you dont code in R and just love football, then ignore the blocks of code in green. But for all the nerds who would like to explore this dataset, you can find it here. Also, if you would like to replicate this analysis, you will need the packages RMarkdown, Plotly, Magick, Dplyr and Corrplot
+
+Now, let me walk you through my humble findings.....
+
+# Dataset
+
+The FIFA 18 dataset was available in a csv/feather format on Kaggle. As a huge fan of the "feather" speed, I chose to download the feather file and look at the row count
 
 ```{r, echo=TRUE,warning=FALSE}
 footballers <- feather::read_feather("/Users/shabdul/Desktop/Blog_Images/complete.feather")
 nrow(footballers)
 ```
-It contains 17,994 footballers from differnet nations and clubs
+
+The entire dataset contained attributes of 17,994 footballers from differnet nations and clubs.
+
+However, since I was only interested in the attackers. I filtered them based on their preferred position (either Strikers or Center Forwards - to be referred as "strikers" going forward)
 
 ```{r, echo=TRUE}
 strikers <- footballers[(footballers$prefers_st ==TRUE |
@@ -28,30 +39,35 @@ strikers <- footballers[(footballers$prefers_st ==TRUE |
                         ]
 nrow(strikers)
 ```
-There are 3,409 strikers
 
+Found 3,409 strikers. 
 
+# Age Distribution
 
-## Age Distribution
-
-Let's analyze age of strikers
+Moving on, I decided to look at the age distribution to define the relative term "older" more precisely
 
 ```{r echo=TRUE,warning=FALSE}
 plot_ly(x = strikers$age, opacity = 0.6, type = "histogram") %>%
-  layout(barmode="overlay",
+  layout(paper_bgcolor = '#f7f7f7',
+         plot_bgcolor='#f7f7f7',
+         barmode="overlay",
          title = "Age distribution of strikers",
          xaxis = list(title = "Age"),
          yaxis = list(title = "Number of Strikers")
   )
 ```
 
-
-
+Looking at the summary of age varibale
 
 ```{r}
 summary(strikers$age)
 ```
-We see the 3rd quartile for strikers age is 28
+
+I realized the 3rd quartile for strikers age is 28 and decided to look at the strikers of age 28 and above.
+
+# Strikers of age 28 or more
+
+Using simple filtering of dataframes 
 
 ```{r,warning=FALSE}
 # Let's look at strikers above or equal to 28 years of age
@@ -62,13 +78,14 @@ strikers_28orAbove <- footballers[(footballers$prefers_st ==TRUE |
 nrow(strikers_28orAbove)
 ```
 
-We see 975 strikers aged 28 or more
+Noticed 975 strikers who are of age 28 or more. A fairly sized sample to explore.
 
+# Correlated Attributes
 
-Let's look at correlation between various skill atttributes of these strikers
+For these 975 strikers, I wanted to look at correlation between various attacking atttributes 
 
 ```{r,warning=FALSE,echo=TRUE}
-# Let's try to look at the correlation between the skill atttributes of these strikers
+# dropping some unwanted columns from dataframe
 correlation_dataframe <- as.data.frame(strikers_28orAbove[,sapply(strikers_28orAbove, function(x) is.numeric(x))])
 drops <- c("ram","rcm","rdm","rcb","rwb","cam","cdm",
            "lwb","lam","lcm","ldm","lcb",
@@ -76,7 +93,8 @@ drops <- c("ram","rcm","rdm","rcb","rwb","cam","cdm",
            "gk_diving","gk_handling","gk_kicking","gk_positioning","gk_reflexes",
            "ID","eur_release_clause","potential",
            "def","marking","interceptions",
-           "sliding_tackle","standing_tackle"
+           "sliding_tackle","standing_tackle","special","international_reputation","long_shots",
+           "eur_value","eur_wage","crossing"
 )
 correlation_dataframe <- correlation_dataframe[ , !(names(correlation_dataframe) %in% drops)]
 # Look at correlation plot
@@ -84,8 +102,20 @@ M <- cor(correlation_dataframe)
 corrplot(M, method = "circle")
 ```
 
-You notice some obvious trends here. Shoaib will call out a couple of  them here.... Pace, Stamina, Composure, Penalties and Freekicks seem interesting
+Although this image screams clutter (please zoom in to have a better visual), there are some very interesting facts to ponder upon
 
+1) Height and Weight of these strikers seemed to adversely impact the majority of their attacking attributes.
+2) Pace and Stamina seemed to drop with age which is not a surprise. 
+3) Penalites and Freekicks seemed to imporve with age.
+4) Composure and Agression were failrly constant and slightly increased.
+
+As a football fan, most of these attributes made sense to me. A star striker like Zlatan Ibrahimovic seemed to perfectly fit the bill for the aforementioned behavior.
+
+# Pace and Stamina
+
+Pace seemed to be negatiely correlated to age. Who do you think are the top 3 "older" strikers when it comes to pace? Their nationalities are shown below using flags.
+
+If your geography is as bad as mine, then read on....
 
 ```{r,warning=FALSE,echo=TRUE}
 top_3_pace <- strikers_28orAbove %>%
@@ -94,12 +124,16 @@ img <- c(image_read(top_3_pace$flag[1]), image_read(top_3_pace$flag[2]), image_r
 image_append(image_scale(img, "x100"))
 ```
 
+Who do you think are the top 3 when it comes to stamina?
+
 ```{r,warning=FALSE,echo=TRUE}
 top_3_stamina<- strikers_28orAbove %>%
   filter(rank(desc(stamina))<=3)
 img <- c(image_read(top_3_stamina$flag[1]), image_read(top_3_stamina$flag[2]), image_read(top_3_stamina$flag[3]))
 image_append(image_scale(img, "x100"))
 ```
+
+Here is a graph with the pace and stamina for these strikers. You can hover over the data points to find the answers.
 
 ```{r,warning=FALSE,echo=TRUE}
 plot_ly(strikers_28orAbove, x = ~age) %>%
@@ -111,11 +145,20 @@ plot_ly(strikers_28orAbove, x = ~age) %>%
   add_lines(y = ~fitted(loess(stamina ~ age)),
             line = list(color = '#FF3F33',opacity=1),
             name = "Stamina Trend", showlegend = TRUE) %>%
-  layout(xaxis = list(title = 'Age'),
-         yaxis = list(title = 'Pace / Stamina'),
+  layout(paper_bgcolor = '#f7f7f7',
+         plot_bgcolor='#f7f7f7',
+         xaxis = list(title = 'Age'),
+         yaxis = list(title = 'Pace and Stamina'),
          title = "Impact of Age on Pace and Stamina",
          legend = list(x = 0.80, y = 0.90))
 ```
+
+
+# Penalties and Freekicks
+
+These attributes seemed to improve with age. Let's try the quiz again. Shall we?
+
+Here are the top 2 strikers with the highest penalty attribute
 
 ```{r,warning=FALSE,echo=TRUE}
 top_2_penalties <- strikers_28orAbove %>%
@@ -124,7 +167,7 @@ img <- c(image_read(top_2_penalties$flag[1]), image_read(top_2_penalties$flag[2]
 image_append(image_scale(img, "x100"))
 ```
 
-
+Here are the top 3 strikers with the highest freekick accuracy
 
 ```{r,warning=FALSE,echo=TRUE}
 top_3_free_kick_accuracy<- strikers_28orAbove %>%
@@ -133,6 +176,7 @@ img <- c(image_read(top_3_free_kick_accuracy$flag[1]), image_read(top_3_free_kic
 image_append(image_scale(img, "x100"))
 ```
 
+If you are a true football fan, that should have been easy. Hover over data below to find out if you were right.
 
 ```{r,warning=FALSE,echo=TRUE}
 plot_ly(strikers_28orAbove, x = ~age) %>%
@@ -144,12 +188,20 @@ plot_ly(strikers_28orAbove, x = ~age) %>%
   add_lines(y = ~fitted(loess(free_kick_accuracy ~ age)),
             line = list(color = '#FF3F33',opacity=1),
             name = "Free kick_accuracy Trend", showlegend = TRUE) %>%
-  layout(xaxis = list(title = 'Age'),
-         yaxis = list(title = 'Penalties / Free_kick_accuracy'),
+  layout(paper_bgcolor = '#f7f7f7',
+         plot_bgcolor='#f7f7f7',
+         xaxis = list(title = 'Age'),
+         yaxis = list(title = 'Penalties and Free kick accuracy'),
          title = "Impact of Age on Penalties and Free kick accuracy",
          legend = list(x = 0.80, y = 0.90))
 ```
 
+
+# Composure and Aggression
+
+Finally, to the 2 most interesting attributes I found with regards to older strikers. Let's try the quiz one last time :)
+
+Here are the top 3 strikers with the highest composure
 
 ```{r,warning=FALSE,echo=TRUE}
 top_3_composure<- strikers_28orAbove %>%
@@ -158,6 +210,8 @@ img <- c(image_read(top_3_composure$flag[1]), image_read(top_3_composure$flag[2]
 image_append(image_scale(img, "x100"))
 ```
 
+Here are the top 3 strikers with the highest aggression
+
 ```{r,warning=FALSE,echo=TRUE}
 top_3_aggression<- strikers_28orAbove %>%
   filter(rank(desc(aggression))<=3)
@@ -165,7 +219,7 @@ img <- c(image_read(top_3_aggression$flag[1]), image_read(top_3_aggression$flag[
 image_append(image_scale(img, "x100"))
 ```
 
-
+Hover below to find out the answers.
 
 ```{r,warning=FALSE,echo=TRUE}
 plot_ly(strikers_28orAbove, x = ~age) %>%
@@ -177,19 +231,30 @@ plot_ly(strikers_28orAbove, x = ~age) %>%
   add_lines(y = ~fitted(loess(aggression ~ age)),
             line = list(color = '#FF3F33',opacity=1),
             name = "Aggression Trend", showlegend = TRUE) %>%
-  layout(xaxis = list(title = 'Age'),
-         yaxis = list(title = 'Composure / Aggression'),
+  layout(paper_bgcolor = '#f7f7f7',
+         plot_bgcolor='#f7f7f7',
+         xaxis = list(title = 'Age'),
+         yaxis = list(title = 'Composure and Aggression'),
          title = "Impact of Age on Composure and Aggression",
          legend = list(x = 0.80, y = 0.90))
 ```
+
+
+From the graph above, you can see why Chelsea let go of Diego Costa :)
+On a more serious note, these attributes remain fairly constant as age increases but are fairly high compared to the like of younger strikers.
+
+Another inteseting fact was the population of these strikers across nations.
 
 ```{r,warning=FALSE,echo=TRUE}
 strikers_above25_spread <- strikers_28orAbove %>% group_by(nationality)  %>% summarise(n = n()) %>% arrange(desc(n))
 head(arrange(strikers_above25_spread, desc(n)), n=10)
 ```
+ 
+Brazil, England and Argentina seemed to have the most number of them. Japan is not a surprise entry in there, considering the football culture in Japan where the oldest striker in the world - Kazuyoshi Miura, aged 51 still plays for Yokohama FC.
 
+Here is a spread, of these strikers based on countries. 
 
-
+Note: Countries which are not visible on the map either have no such strikers or have been omitted due to lack of mapping data.
 
 ```{r,warning=FALSE,echo=TRUE}
 df <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv',stringsAsFactors = FALSE)
@@ -228,6 +293,7 @@ p <- plot_geo(strikers_above25_spread) %>%
   ) %>%
   colorbar(title = 'Population', tickprefix = '') %>%
   layout(
+    plot_bgcolor='#f7f7f7',
     title = 'Population Spread of Strikers above 25',
     geo = g
   )
@@ -236,6 +302,13 @@ p
 
 
 
+# Conclusion
+
+I believe age is way more than just a number for strikers in world football.
+The impact is very severe and there are positives and negatives to having an older striker on your football team.
+Although, you will end up compromising on pace, dribbling ability and most of the "star-like" qualities of a striker, you will end up adding more experience, composure and in a lot of cases - good heading options and aggression in front of goal.
+
+Hope you enjoy the upcoming FIFA world cup 2018!
 
 
 

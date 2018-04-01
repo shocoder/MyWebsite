@@ -6,41 +6,18 @@
     <description>Recent content in Blogs on Shoaib&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Mar 2018 12:04:16 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 01 Apr 2018 12:04:16 -0500</lastBuildDate>
     
 	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Programming: The artist and the hustler</title>
-      <link>/blog/coffee-ipsum/</link>
-      <pubDate>Mon, 26 Mar 2018 12:04:16 -0500</pubDate>
-      
-      <guid>/blog/coffee-ipsum/</guid>
-      <description>• Dsa • dasda</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/blog/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/blog/2015-07-23-r-rmarkdown/</guid>
-      <description>R Markdown https://crisp.shinyapps.io/087-crandash/
-https://gallery.shinyapps.io/087-crandash/
-Few tips to start being more “artsy”
-1. Work on the quality of your code. Picture every line you write being played at a cinema near you.
-2. Invest time in learning how a language actually works and start contributing to the community.
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.</description>
-    </item>
-    
-    <item>
-      <title>Fifa_Strikers</title>
+      <title>Is age just a number for strikers in world football?</title>
       <link>/blog/fifa-strikers/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 01 Apr 2018 12:04:16 -0500</pubDate>
       
       <guid>/blog/fifa-strikers/</guid>
-      <description> Fifa_Strikers  </description>
+      <description>Premise Recently, I recently came across a very interesting dataset on Kaggle which contains attributes of various world footballers. As a huge fan of strikers like Didier Drogba, Diego Forlan and Ronaldo (the Brazilian one) - I decided to explore the impact of age on the attributes of center forwards or strikers who are nearing the end of their careers or to say the least, dont qualify as ‘youngsters’ anymore.</description>
     </item>
     
   </channel>
