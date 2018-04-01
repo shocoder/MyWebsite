@@ -1,0 +1,242 @@
+---
+title: "Fifa_Strikers"
+author: "Shoaib"
+date: "4/1/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(plotly)
+library(corrplot)
+library(magick)
+library(dplyr)
+```
+
+## R Markdown
+
+
+```{r, echo=TRUE,warning=FALSE}
+footballers <- feather::read_feather("/Users/shabdul/Desktop/Blog_Images/complete.feather")
+nrow(footballers)
+```
+It contains 17,994 footballers from differnet nations and clubs
+
+```{r, echo=TRUE}
+strikers <- footballers[(footballers$prefers_st ==TRUE |
+                           footballers$prefers_cf ==TRUE),
+                        ]
+nrow(strikers)
+```
+There are 3,409 strikers
+
+
+
+## Age Distribution
+
+Let's analyze age of strikers
+
+```{r echo=TRUE,warning=FALSE}
+plot_ly(x = strikers$age, opacity = 0.6, type = "histogram") %>%
+  layout(barmode="overlay",
+         title = "Age distribution of strikers",
+         xaxis = list(title = "Age"),
+         yaxis = list(title = "Number of Strikers")
+  )
+```
+
+
+
+
+```{r}
+summary(strikers$age)
+```
+We see the 3rd quartile for strikers age is 28
+
+```{r,warning=FALSE}
+# Let's look at strikers above or equal to 28 years of age
+strikers_28orAbove <- footballers[(footballers$prefers_st ==TRUE |
+                                     footballers$prefers_cf ==TRUE)
+                                  & footballers$age >= 28 ,
+                                  ]
+nrow(strikers_28orAbove)
+```
+
+We see 975 strikers aged 28 or more
+
+
+Let's look at correlation between various skill atttributes of these strikers
+
+```{r,warning=FALSE,echo=TRUE}
+# Let's try to look at the correlation between the skill atttributes of these strikers
+correlation_dataframe <- as.data.frame(strikers_28orAbove[,sapply(strikers_28orAbove, function(x) is.numeric(x))])
+drops <- c("ram","rcm","rdm","rcb","rwb","cam","cdm",
+           "lwb","lam","lcm","ldm","lcb",
+           "rw","rf","rs","rm","rb","st","lw","cf","cm","lm","lb","cb","ls","lf","gk",
+           "gk_diving","gk_handling","gk_kicking","gk_positioning","gk_reflexes",
+           "ID","eur_release_clause","potential",
+           "def","marking","interceptions",
+           "sliding_tackle","standing_tackle"
+)
+correlation_dataframe <- correlation_dataframe[ , !(names(correlation_dataframe) %in% drops)]
+# Look at correlation plot
+M <- cor(correlation_dataframe)
+corrplot(M, method = "circle")
+```
+
+You notice some obvious trends here. Shoaib will call out a couple of  them here.... Pace, Stamina, Composure, Penalties and Freekicks seem interesting
+
+
+```{r,warning=FALSE,echo=TRUE}
+top_3_pace <- strikers_28orAbove %>%
+  filter(rank(desc(pac))<=3)
+img <- c(image_read(top_3_pace$flag[1]), image_read(top_3_pace$flag[2]), image_read(top_3_pace$flag[3]))
+image_append(image_scale(img, "x100"))
+```
+
+```{r,warning=FALSE,echo=TRUE}
+top_3_stamina<- strikers_28orAbove %>%
+  filter(rank(desc(stamina))<=3)
+img <- c(image_read(top_3_stamina$flag[1]), image_read(top_3_stamina$flag[2]), image_read(top_3_stamina$flag[3]))
+image_append(image_scale(img, "x100"))
+```
+
+```{r,warning=FALSE,echo=TRUE}
+plot_ly(strikers_28orAbove, x = ~age) %>%
+  add_markers(y = ~stamina, text = ~name, color = I("red"), opacity=0.5, name = "Stamina", showlegend = TRUE) %>%
+  add_markers(y = ~pac, text = ~name, color = I("blue"), opacity=0.5, name = "Pace", showlegend = TRUE) %>%
+  add_lines(y = ~fitted(loess(pac ~ age)),
+            line = list(color = '#1370D3',opacity=1),
+            name = "Pace Trend", showlegend = TRUE) %>%
+  add_lines(y = ~fitted(loess(stamina ~ age)),
+            line = list(color = '#FF3F33',opacity=1),
+            name = "Stamina Trend", showlegend = TRUE) %>%
+  layout(xaxis = list(title = 'Age'),
+         yaxis = list(title = 'Pace / Stamina'),
+         title = "Impact of Age on Pace and Stamina",
+         legend = list(x = 0.80, y = 0.90))
+```
+
+```{r,warning=FALSE,echo=TRUE}
+top_2_penalties <- strikers_28orAbove %>%
+  filter(rank(desc(penalties))<=3)
+img <- c(image_read(top_2_penalties$flag[1]), image_read(top_2_penalties$flag[2]))
+image_append(image_scale(img, "x100"))
+```
+
+
+
+```{r,warning=FALSE,echo=TRUE}
+top_3_free_kick_accuracy<- strikers_28orAbove %>%
+  filter(rank(desc(free_kick_accuracy))<=3)
+img <- c(image_read(top_3_free_kick_accuracy$flag[1]), image_read(top_3_free_kick_accuracy$flag[2]), image_read(top_3_free_kick_accuracy$flag[3]))
+image_append(image_scale(img, "x100"))
+```
+
+
+```{r,warning=FALSE,echo=TRUE}
+plot_ly(strikers_28orAbove, x = ~age) %>%
+  add_markers(y = ~penalties, text = ~name, color = I("red"), opacity=0.5, name = "Penalties", showlegend = TRUE) %>%
+  add_markers(y = ~free_kick_accuracy, text = ~name, color = I("blue"), opacity=0.5, name = "Free kick accuracy", showlegend = TRUE) %>%
+  add_lines(y = ~fitted(loess(penalties ~ age)),
+            line = list(color = '#1370D3',opacity=1),
+            name = "Penalties Trend", showlegend = TRUE) %>%
+  add_lines(y = ~fitted(loess(free_kick_accuracy ~ age)),
+            line = list(color = '#FF3F33',opacity=1),
+            name = "Free kick_accuracy Trend", showlegend = TRUE) %>%
+  layout(xaxis = list(title = 'Age'),
+         yaxis = list(title = 'Penalties / Free_kick_accuracy'),
+         title = "Impact of Age on Penalties and Free kick accuracy",
+         legend = list(x = 0.80, y = 0.90))
+```
+
+
+```{r,warning=FALSE,echo=TRUE}
+top_3_composure<- strikers_28orAbove %>%
+  filter(rank(desc(composure))<=3)
+img <- c(image_read(top_3_composure$flag[1]), image_read(top_3_composure$flag[2]), image_read(top_3_composure$flag[3]))
+image_append(image_scale(img, "x100"))
+```
+
+```{r,warning=FALSE,echo=TRUE}
+top_3_aggression<- strikers_28orAbove %>%
+  filter(rank(desc(aggression))<=3)
+img <- c(image_read(top_3_aggression$flag[1]), image_read(top_3_aggression$flag[2]), image_read(top_3_aggression$flag[3]))
+image_append(image_scale(img, "x100"))
+```
+
+
+
+```{r,warning=FALSE,echo=TRUE}
+plot_ly(strikers_28orAbove, x = ~age) %>%
+  add_markers(y = ~composure, text = ~name, color = I("red"), opacity=0.5, name = "Composure", showlegend = TRUE) %>%
+  add_markers(y = ~aggression, text = ~name, color = I("blue"), opacity=0.5, name = "Aggression", showlegend = TRUE) %>%
+  add_lines(y = ~fitted(loess(composure ~ age)),
+            line = list(color = '#1370D3',opacity=1),
+            name = "Composure Trend", showlegend = TRUE) %>%
+  add_lines(y = ~fitted(loess(aggression ~ age)),
+            line = list(color = '#FF3F33',opacity=1),
+            name = "Aggression Trend", showlegend = TRUE) %>%
+  layout(xaxis = list(title = 'Age'),
+         yaxis = list(title = 'Composure / Aggression'),
+         title = "Impact of Age on Composure and Aggression",
+         legend = list(x = 0.80, y = 0.90))
+```
+
+```{r,warning=FALSE,echo=TRUE}
+strikers_above25_spread <- strikers_28orAbove %>% group_by(nationality)  %>% summarise(n = n()) %>% arrange(desc(n))
+head(arrange(strikers_above25_spread, desc(n)), n=10)
+```
+
+
+
+
+```{r,warning=FALSE,echo=TRUE}
+df <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv',stringsAsFactors = FALSE)
+# adding 13 manual entries which are missing from the csv
+df <- rbind(df[,c('COUNTRY','CODE')],c("England","GBR"),
+            c("Bosnia Herzegovina","BIH"),
+            c("DR Congo","COD"),
+            c("Ivory Coast","CIV"),
+            c("Cape Verde","CPV"),
+            c("Republic of Ireland","IRL"),
+            c("FYR Macedonia","MKD"),
+            c("Korea Republic","KOR"),
+            c("Congo","COG"),
+            c("China PR","CHN"),
+            c("Guinea Bissa","GNB"),
+            c("Trinidad & Tobago","TTO"),
+            c("Gambia","GMB"),
+            c("Antigua & Barbuda","ATG")
+)
+location_mapping <- df %>% group_by(COUNTRY)  %>% summarise(n = CODE)
+location_mapping <- data.frame(location_mapping)
+strikers_above25_spread <- data.frame(strikers_above25_spread)
+strikers_above25_spread$code <- location_mapping$n[match(strikers_above25_spread$nationality,location_mapping$COUNTRY)]
+# adding light grey boundaries
+l <- list(color = toRGB("grey"), width = 0.5)
+# specifying map projection/options
+g <- list(
+  showframe = FALSE,
+  showcoastlines = FALSE,
+  projection = list(type = 'Mercator')
+)
+p <- plot_geo(strikers_above25_spread) %>%
+  add_trace(
+    z = ~n, color = ~n, colors = 'Blues',
+    text = ~nationality, locations = ~code, marker = list(line = l)
+  ) %>%
+  colorbar(title = 'Population', tickprefix = '') %>%
+  layout(
+    title = 'Population Spread of Strikers above 25',
+    geo = g
+  )
+p
+```
+
+
+
+
+
+
+

@@ -13,16 +13,7 @@ knitr::opts_chunk$set(collapse = TRUE)
 # R Markdown
 
 
-https://crisp.shinyapps.io/087-crandash/
 
-
-https://gallery.shinyapps.io/087-crandash/
-
-
-
-Few tips to start being more “artsy”  
-1.	Work on the quality of your code. Picture every line you write being played at a cinema near you.  
-2.	Invest time in learning how a language actually works and start contributing to the community.  
 
 
 
