@@ -240,6 +240,11 @@ plot_ly(strikers_28orAbove, x = ~age) %>%
 ```
 
 
+
+# Findings
+
+
+
 From the graph above, you can see why Chelsea let go of Diego Costa :)
 On a more serious note, these attributes remain fairly constant as age increases but are fairly high compared to the like of younger strikers.
 
