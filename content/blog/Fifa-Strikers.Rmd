@@ -262,7 +262,9 @@ Here is a spread, of these strikers based on countries.
 Note: Countries which are not visible on the map either have no such strikers or have been omitted due to lack of mapping data.
 
 ```{r,warning=FALSE,echo=TRUE}
-df <- read.csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv',stringsAsFactors = FALSE)
+df <- read.csv(
+  'https://raw.githubusercontent.com/plotly/datasets/master/2014_world_gdp_with_codes.csv'
+  ,stringsAsFactors = FALSE)
 # adding 13 manual entries which are missing from the csv
 df <- rbind(df[,c('COUNTRY','CODE')],c("England","GBR"),
             c("Bosnia Herzegovina","BIH"),
@@ -282,7 +284,8 @@ df <- rbind(df[,c('COUNTRY','CODE')],c("England","GBR"),
 location_mapping <- df %>% group_by(COUNTRY)  %>% summarise(n = CODE)
 location_mapping <- data.frame(location_mapping)
 strikers_above25_spread <- data.frame(strikers_above25_spread)
-strikers_above25_spread$code <- location_mapping$n[match(strikers_above25_spread$nationality,location_mapping$COUNTRY)]
+strikers_above25_spread$code <- 
+  location_mapping$n[match(strikers_above25_spread$nationality,location_mapping$COUNTRY)]
 # adding light grey boundaries
 l <- list(color = toRGB("grey"), width = 0.5)
 # specifying map projection/options
