@@ -1,7 +1,7 @@
 ---
-title: "Tesseract"
+title: "OCR and Object Recognition using Tesseract and RVision"
 author: "Shoaib"
-date: "5/6/2018"
+date: 2018-05-07T12:04:16-05:00
 output: html_document
 ---
 
@@ -14,41 +14,31 @@ library(magick)
 library(htmltools)
 ```
 
-## R Markdown
+In this post, I intend to share my experience working with a couple of very interesting libraries in R and help you explore some of their features such as image to text translation and also building a simple 'color based' object detection program  
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Here are the libraries I used for some experiments that follow
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+1) Tesseract - A library used to perform Optical character recognition or OCR (https://github.com/ropensci/tesseract)
+2) RVision - A basic computer vision library which is fairly new and still in development (https://github.com/swarm-lab/Rvision)
 
-```{r, echo=FALSE}
-input <- image_read('https://images.pexels.com/photos/415359/pexels-photo-415359.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
-plot(input)
-```
+## OCR using Tesseract
 
-## Including Plots
+Optical character recognition is something that has been around for ages. Let's look at some sample code to extract text from an image. As the first example, let's look at some text about Shane O'Brien (an ice hockey player from Canada)
 
-You can also embed plots, for example:
-
-```{r, echo=FALSE}
-cat(image_ocr(input))
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
-```{r, echo = FALSE}
+```{r, echo=TRUE,warning=FALSE}
 input <- image_read('https://postmediaprovince2.files.wordpress.com/2010/03/obwiki-1.jpg?quality=60&strip=all&w=640')
 plot(input)
 ```
 
-Lets view the result
+Let's just input this image to a function from Tesseract library and look at the output
 
-```{r, echo=FALSE}
+```{r,echo=TRUE,warning=FALSE}
 cat(image_ocr(input))
 ```
 
-Lets update the image and view the result
+If you paid attention to the console above, you have have noticed some typos and punctuation errors. Let's try to pre-process this image and see if the output gets any better. The code below allows us to perform Resizing, converting it to greyscale and adjusting the trim and density of the image
 
-```{r, echo=FALSE}
+```{r,echo=TRUE,warning=FALSE}
 text <- input %>%
   image_resize("2000x") %>%
   image_convert(type = 'Grayscale') %>%
@@ -59,14 +49,29 @@ text <- input %>%
 cat(text)
 ```
 
-You see, this looks a little better. annoumed = announced, A((ording = According,  plagiarisf = plagiarist,mougm = thought, umil oui = until out, muck = struck
+That worked! The output looks a little better. "A((ording" from the previous output (no pre-processing) is now "According"",  "plagiarisf" is now "plagiarist", 
+"mougm" is now "thought", "umil oui" is now "until out" and "muck" is now "struck".
 
-Let try to use the webcam and click an image which we can then scan.....
+Not bad at all. Let's try this on a more real life image without any pre-processing. Below is an image I found on a website that offers free images.
 
+```{r, echo=TRUE,warning=FALSE}
+input <- image_read('https://images.pexels.com/photos/415359/pexels-photo-415359.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+plot(input)
+```
 
-The code snippet below would allow us to access the webcam and click a sample image. To limit the complexity of this post, I have commented the code.
+```{r, echo=TRUE,warning=FALSE}
+cat(image_ocr(input))
+```
 
-```{r, echo=FALSE}
+As you see from the output above, the library got roughly 9 out of 11 words right but was unable to comprehend the cursive handwriting. The output you receive is really dependent on the quality of the input image you provide and more often than not it tends to be THE most important factor in the OCR process.
+
+## A look at RVision
+
+One of the cool features of RVision is that it allows you to access the webcam of you machine and capture images or videos. Let's try to use the webcam and click an image to test the Tesseract OCR again.
+
+(The code snippet below would allow you to access the webcam and click a sample image, it has been commented)
+
+```{r, echo=TRUE,warning=FALSE}
 # start the webcam of your laptop
 # my_stream <- stream(0) 
 
@@ -77,34 +82,110 @@ The code snippet below would allow us to access the webcam and click a sample im
 # plot(my_selfie)
 
 # save it as a .jpg file
-# path_to_image <- paste0(tempfile(), ".jpg")
-# write.Image(my_selfie, path_to_image)
+# write.Image(my_selfie, paste0(tempfile(), ".jpg"))
 
 # shut down the webcam
 # release(my_stream)
 ```
 
-Here is a sample image I captured using the code above. It is an image of the appendix of a very interesting book on data Science by Hal Daume....
-You will notice enough light (this could be a flash or well lit area as you need....)
+Here is a sample image I captured using the code above. It is the cover page of an amazing book on Transact-SQL written by Iztak Ben
 
-```{r, echo = FALSE}
+```{r, echo=TRUE,warning=FALSE}
 input <- image_read('https://preview.ibb.co/hKXg9S/tsql.png')
 plot(input)
 ```
 
-```{r, echo=FALSE}
+```{r, echo=TRUE,warning=FALSE}
 library(stringr)
 cat(str_replace_all(image_ocr(input), "[\n]" , ""))
 ```
 
-Here is the video from Object recognition....
+Considering, the image quality from the webcam of my 2015 Mac Pro and the random complexity of the image, the output seems fair. We will have to pre-process this image using a mechanism slightly different from the previous one to remove the gibberish text. 
 
+To keep this post simple, I will not delve into different "complex" aspects of image recognition and instead, move on to some Object recognition using the webcam we now have access to...
+
+## Blob Detection using RVision
+
+First off, if you are going to try this on a laptop then know that it's not easy to point the webcam of your laptop at your desk trying to capture a bunch of random objects :)
+
+So, here is a quick video of what the objects on my messy desk look like using the simpleBlobDetector function from the RVision library. 
+I tried to detect blobs of orange, blue and green from the live feed of my webcam.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gIIfXqrFmMw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
+For this test, I used code written by Hvitfeldt (https://www.hvitfeldt.me/2018/02/rvision-a-first-look/) 
+Making a few tweaks allowed me to run the code so that it suits my webcam performance and lighting better. 
+You can find all of it commented below.
 
+```{r, echo=TRUE,warning=FALSE}
+# # function to detect the blob
+# blob_fun <- function(img, fun, color = character()) {
+#   img %>%
+#     split() %>%
+#     do.call(fun, .) %>%
+#     medianBlur(15) %>%
+#     simpleBlobDetector(max_area = Inf, min_area = 10, blob_color = 255,
+#                        filter_by_convexity = FALSE, 
+#                        filter_by_inertia = FALSE, min_threshold = 0) %>%
+#     mutate(color = color)
+# } 
+# 
+# # function to draw the rectangles
+# multi_draw <- function(img, blobs) {
+#   if (nrow(blobs) > 0) {
+#     for (i in 1:nrow(blobs)) {
+#       drawRectangle(img, 
+#                     blobs$x[i] - 1 + blobs$size[i], 
+#                     blobs$y[i] - 1 + blobs$size[i],
+#                     blobs$x[i] - 1 - blobs$size[i], 
+#                     blobs$y[i] - 1 - blobs$size[i], 
+#                     thickness = 5, color = blobs$color[1])
+#     }
+#   }
+# }
+# 
+# # define the colors to be detected
+# blue <- function(b, g, r) b > 150 & r < 200 & g < 200
+# green <- function(b, g, r) g > 150 & b < 200 & r < 200
+# orange <- function(b, g, r)  g > 150 & b < 150 & r > 150
+# 
+# # set the path to save the video and initialize the video writer
+# path_to_video <- paste0("/Users/shabdul/DemoVideo.mp4")
+# my_writer <- videoWriter(path_to_video, fourcc = "x264", fps = 30, height = 720, width = 1280)
+# 
+# # start the webcam and display a new window with the live stream
+# my_stream <- stream(0)
+# newDisplay("Live test", 360, 640)
+# 
+# while(TRUE) {
+#   img <- readNext(my_stream)
+#   
+#   blue_mms <- blob_fun(img, blue, "blue")
+#   green_mms <- blob_fun(img, green, "green")
+#   orange_mms <- blob_fun(img, orange, "orange")
+#   
+#   multi_draw(img, blue_mms)
+#   multi_draw(img, green_mms)
+#   multi_draw(img, orange_mms)
+#   display(img, "Live test", 25, 360, 640)
+#   
+#   # write the stream to the video file
+#    for (i in seq_len(30)) {
+#      writeFrame(my_writer, img)
+#    }
+#   
+# }
+# 
+# # Clean up after the test is complete
+# destroyDisplay("Live test")
+# release(my_stream)
+# release(my_writer)
+```
 
+If you have made it this far, then, here is a funny clip from the TV series "Silicon Valley" that prompted me to give this a shot. 
 
+Enjoy it :) 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vIci3C4JkL0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
