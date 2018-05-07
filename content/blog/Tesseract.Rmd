@@ -11,6 +11,7 @@ library(Rvision)
 library(ROpenCVLite)
 library(tesseract)
 library(magick)
+library(htmltools)
 ```
 
 ## R Markdown
@@ -96,9 +97,10 @@ library(stringr)
 cat(str_replace_all(image_ocr(input), "[\n]" , ""))
 ```
 
+Here is the video from Object recognition....
 
 
-<iframe width="560" height="315" src="https://youtu.be/gIIfXqrFmMw" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gIIfXqrFmMw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
 
