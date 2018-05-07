@@ -1,0 +1,108 @@
+---
+title: "Tesseract"
+author: "Shoaib"
+date: "5/6/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(Rvision)
+library(ROpenCVLite)
+library(tesseract)
+library(magick)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r, echo=FALSE}
+input <- image_read('https://images.pexels.com/photos/415359/pexels-photo-415359.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+plot(input)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+cat(image_ocr(input))
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r, echo = FALSE}
+input <- image_read('https://postmediaprovince2.files.wordpress.com/2010/03/obwiki-1.jpg?quality=60&strip=all&w=640')
+plot(input)
+```
+
+Lets view the result
+
+```{r, echo=FALSE}
+cat(image_ocr(input))
+```
+
+Lets update the image and view the result
+
+```{r, echo=FALSE}
+text <- input %>%
+  image_resize("2000x") %>%
+  image_convert(type = 'Grayscale') %>%
+  image_trim(fuzz = 40) %>%
+  image_write(format = 'png', density = '300x300') %>%
+  tesseract::ocr()
+
+cat(text)
+```
+
+You see, this looks a little better. annoumed = announced, A((ording = According,  plagiarisf = plagiarist,mougm = thought, umil oui = until out, muck = struck
+
+Let try to use the webcam and click an image which we can then scan.....
+
+
+The code snippet below would allow us to access the webcam and click a sample image. To limit the complexity of this post, I have commented the code.
+
+```{r, echo=FALSE}
+# start the webcam of your laptop
+# my_stream <- stream(0) 
+
+# capture a selfie
+# my_selfie <- readNext(my_stream)
+
+# view the image
+# plot(my_selfie)
+
+# save it as a .jpg file
+# path_to_image <- paste0(tempfile(), ".jpg")
+# write.Image(my_selfie, path_to_image)
+
+# shut down the webcam
+# release(my_stream)
+```
+
+Here is a sample image I captured using the code above. It is an image of the appendix of a very interesting book on data Science by Hal Daume....
+You will notice enough light (this could be a flash or well lit area as you need....)
+
+```{r, echo = FALSE}
+input <- image_read('https://preview.ibb.co/hKXg9S/tsql.png')
+plot(input)
+```
+
+```{r, echo=FALSE}
+library(stringr)
+cat(str_replace_all(image_ocr(input), "[\n]" , ""))
+```
+
+
+
+<iframe width="560" height="315" src="https://youtu.be/gIIfXqrFmMw" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+
+
+

@@ -107,7 +107,7 @@ Although this image screams clutter (please zoom in to have a better visual), th
 1) Height and Weight of these strikers seemed to adversely impact the majority of their attacking attributes.
 2) Pace and Stamina seemed to drop with age which is not a surprise. 
 3) Penalites and Freekicks seemed to imporve with age.
-4) Composure and Agression were failrly constant and slightly increased.
+4) Composure and Agression were fairly constant and slightly increased.
 
 As a football fan, most of these attributes made sense to me. A star striker like Zlatan Ibrahimovic seemed to perfectly fit the bill for the aforementioned behavior.
 
