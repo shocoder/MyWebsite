@@ -42,6 +42,17 @@ Plants Temporal range: Mesoproterozoic–present Had&amp;rsquo;nArcheanProterozo
     </item>
     
     <item>
+      <title>OCR and Object Recognition using Tesseract and RVision</title>
+      <link>/blog/tesseract/</link>
+      <pubDate>Mon, 07 May 2018 12:04:16 -0500</pubDate>
+      
+      <guid>/blog/tesseract/</guid>
+      <description>In this post, I intend to share my experience working with a couple of very interesting libraries in R and help you explore some of their features such as image to text translation and also building a simple ‘color based’ object detection program
+Here are the libraries I used for some experiments that follow
+Tesseract - A library used to perform Optical character recognition or OCR (https://github.com/ropensci/tesseract) RVision - A basic computer vision library which is fairly new and still in development (https://github.</description>
+    </item>
+    
+    <item>
       <title>Is age just a number for strikers in world football?</title>
       <link>/blog/fifa-strikers/</link>
       <pubDate>Sun, 01 Apr 2018 12:04:16 -0500</pubDate>
