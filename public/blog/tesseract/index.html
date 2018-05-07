@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Website description.">
+
+<base href="/">
+<title>
+
+
+     OCR and Object Recognition using Tesseract and RVision 
+
+</title>
+<link rel="canonical" href="/blog/tesseract/">
+
+
+
+
+
+
+<script
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+
+
+
+    <link rel="stylesheet" href="css/light-style.css">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="img/fav.ico"
+
+>
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-116695891-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+</head>
+
+<body>
+
+<div class="section" id="top">
+
+    <div class="container hero  fade-in one ">
+    <h1 class="bold-title is-1">Shoaib&#39;s Blog</h1>
+    </div>
+
+
+<div class="section  fade-in two ">
+
+    <div class="container">
+    <hr>
+<nav class="nav nav-center">
+    <span id="nav-toggle" class="nav-toggle"  onclick="document.getElementById('nav-menu').classList.toggle('is-active');">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <div id="nav-menu" class="nav-left nav-menu">
+      <span class="nav-item">
+        <a href="/">Main</a>
+      </span>
+      <span class="nav-item">
+        <a href="/#about">About</a> 
+      </span>
+      <span class="nav-item">
+        <a href="/blog">Back to blog</a>
+      </span> 
+      <span class="nav-item">
+        <a href="/#contact">Contact</a>
+      </span>
+    
+      <span class="nav-item">
+        <a href="/index.xml"><i class="fa fa-rss"></i></a>
+      </span>
+    
+    </div>
+</nav>
+<hr>
+    </div>
+
+    <div class="container  fade-in two ">
+        <h2 class="title is-1 top-pad strong-post-title"><a href="/blog/tesseract/">OCR and Object Recognition using Tesseract and RVision</a></h2>
+            <div class="post-data">
+                May 7, 2018 |
+                7 minutes read
+            </div>
+
+            
+                <div class="blog-share">
+                Share this:
+                
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20OCR%20and%20Object%20Recognition%20using%20Tesseract%20and%20RVision%20%2fblog%2ftesseract%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+                </a>
+                
+                 
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=%2fblog%2ftesseract%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+                </a>
+                
+                
+                
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=%2fblog%2ftesseract%2f"
+                onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+                </a>
+                
+                </div>
+            
+
+    </div>
+
+    <div class="container markdown  fade-in two  top-pad">
+        <p>In this post, I intend to share my experience working with a couple of very interesting libraries in R and help you explore some of their features such as image to text translation and also building a simple ‘color based’ object detection program</p>
+<p>Here are the libraries I used for some experiments that follow</p>
+<ol style="list-style-type: decimal">
+<li>Tesseract - A library used to perform Optical character recognition or OCR (<a href="https://github.com/ropensci/tesseract" class="uri">https://github.com/ropensci/tesseract</a>)</li>
+<li>RVision - A basic computer vision library which is fairly new and still in development (<a href="https://github.com/swarm-lab/Rvision" class="uri">https://github.com/swarm-lab/Rvision</a>)</li>
+</ol>
+<div id="ocr-using-tesseract" class="section level2">
+<h2>OCR using Tesseract</h2>
+<p>Optical character recognition is something that has been around for ages. Let’s look at some sample code to extract text from an image. As the first example, let’s look at some text about Shane O’Brien (an ice hockey player from Canada)</p>
+<pre class="r"><code>input &lt;- image_read(&#39;https://postmediaprovince2.files.wordpress.com/2010/03/obwiki-1.jpg?quality=60&amp;strip=all&amp;w=640&#39;)
+plot(input)</code></pre>
+<p><img src="/blog/Tesseract_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Let’s just input this image to a function from Tesseract library and look at the output</p>
+<pre class="r"><code>cat(image_ocr(input))</code></pre>
+<pre><code>## On March 30, 2010, it was annoumed by Alain Vigneault (hat O&#39;Brien
+## would sit out me next 3 games ior disciplinary reasons. A((ording in
+## Team 1040 DJ and noted plagiarisf David Pram Shane O&#39;Brien was
+## spending way too much time at the Roxy arid No.5 Orange. O&#39;Brien
+## men wem to ﬁght Vigneault and physically dominated him, umil oui
+## of nowhere,Jyrki Lumme emerged with a steel (hair and muck
+## O&#39;Brien &amp; vigeneauii on we head, knoCking mem both out. Lumme
+## then ran away yelling &quot;Me is Champion...Me is Champion&quot;, and got
+## into a getaway car mougm to be driven by Lumme‘s ex defense
+## partner , Dana Murzyn. The (ar was an 86&#39; Pontiac Fiero.</code></pre>
+<p>If you paid attention to the console above, you have have noticed some typos and punctuation errors. Let’s try to pre-process this image and see if the output gets any better. The code below allows us to perform Resizing, converting it to greyscale and adjusting the trim and density of the image</p>
+<pre class="r"><code>text &lt;- input %&gt;%
+  image_resize(&quot;2000x&quot;) %&gt;%
+  image_convert(type = &#39;Grayscale&#39;) %&gt;%
+  image_trim(fuzz = 40) %&gt;%
+  image_write(format = &#39;png&#39;, density = &#39;300x300&#39;) %&gt;%
+  tesseract::ocr()
+
+cat(text)</code></pre>
+<pre><code>## On March 30, 2010, it was announced by Alain Vigneault that O&#39;Brien
+## would sit out the next 3 games for disciplinary reasons. According to
+## Team 1040 DJ and noted plagiarist David Pratt, Shane O&#39;Brien was
+## spending way too much time at the Roxy and No.5 Orange. O&#39;Brien
+## then went to ﬁght Vigneault and physically dominated him, until out
+## of nowhere,Jyrki Lumme emerged with a steel chair and struck
+## O&#39;Brien &amp; Vigeneauit on the head, knocking them both out. Lumme
+## then ran away yelling &quot;Me is Champion...Me is Champion&quot;, and got
+## into a getaway car thought to be driven by Lumme&#39;s ex defense
+## partner - Dana Murzyn. The car was an 86&#39; Pontiac Fiero.</code></pre>
+<p>That worked! The output looks a little better. “A((ording” from the previous output (no pre-processing) is now “According”“,”plagiarisf&quot; is now “plagiarist”, “mougm” is now “thought”, “umil oui” is now “until out” and “muck” is now “struck”.</p>
+<p>Not bad at all. Let’s try this on a more real life image without any pre-processing. Below is an image I found on a website that offers free images.</p>
+<pre class="r"><code>input &lt;- image_read(&#39;https://images.pexels.com/photos/415359/pexels-photo-415359.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260&#39;)
+plot(input)</code></pre>
+<p><img src="/blog/Tesseract_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>cat(image_ocr(input))</code></pre>
+<pre><code>## HAPPINESS
+## 
+## IS NOT A
+## DESTINATION
+## 
+## 1t 15 a way
+## 
+## f .
+## 
+## O 4/6 ,</code></pre>
+<p>As you see from the output above, the library got roughly 9 out of 11 words right but was unable to comprehend the cursive handwriting. The output you receive is really dependent on the quality of the input image you provide and more often than not it tends to be THE most important factor in the OCR process.</p>
+</div>
+<div id="a-look-at-rvision" class="section level2">
+<h2>A look at RVision</h2>
+<p>One of the cool features of RVision is that it allows you to access the webcam of you machine and capture images or videos. Let’s try to use the webcam and click an image to test the Tesseract OCR again.</p>
+<p>(The code snippet below would allow you to access the webcam and click a sample image, it has been commented)</p>
+<pre class="r"><code># start the webcam of your laptop
+# my_stream &lt;- stream(0) 
+
+# capture a selfie
+# my_selfie &lt;- readNext(my_stream)
+
+# view the image
+# plot(my_selfie)
+
+# save it as a .jpg file
+# write.Image(my_selfie, paste0(tempfile(), &quot;.jpg&quot;))
+
+# shut down the webcam
+# release(my_stream)</code></pre>
+<p>Here is a sample image I captured using the code above. It is the cover page of an amazing book on Transact-SQL written by Iztak Ben</p>
+<pre class="r"><code>input &lt;- image_read(&#39;https://preview.ibb.co/hKXg9S/tsql.png&#39;)
+plot(input)</code></pre>
+<p><img src="/blog/Tesseract_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>library(stringr)
+cat(str_replace_all(image_ocr(input), &quot;[\n]&quot; , &quot;&quot;))</code></pre>
+<pre><code>## Querying ‘5Data with ETransact—SQL</code></pre>
+<p>Considering, the image quality from the webcam of my 2015 Mac Pro and the random complexity of the image, the output seems fair. We will have to pre-process this image using a mechanism slightly different from the previous one to remove the gibberish text.</p>
+<p>To keep this post simple, I will not delve into different “complex” aspects of image recognition and instead, move on to some Object recognition using the webcam we now have access to…</p>
+</div>
+<div id="blob-detection-using-rvision" class="section level2">
+<h2>Blob Detection using RVision</h2>
+<p>First off, if you are going to try this on a laptop then know that it’s not easy to point the webcam of your laptop at your desk trying to capture a bunch of random objects :)</p>
+<p>So, here is a quick video of what the objects on my messy desk look like using the simpleBlobDetector function from the RVision library. I tried to detect blobs of orange, blue and green from the live feed of my webcam.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gIIfXqrFmMw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+<p>For this test, I used code written by Hvitfeldt (<a href="https://www.hvitfeldt.me/2018/02/rvision-a-first-look/" class="uri">https://www.hvitfeldt.me/2018/02/rvision-a-first-look/</a>) Making a few tweaks allowed me to run the code so that it suits my webcam performance and lighting better. You can find all of it commented below.</p>
+<pre class="r"><code># # function to detect the blob
+# blob_fun &lt;- function(img, fun, color = character()) {
+#   img %&gt;%
+#     split() %&gt;%
+#     do.call(fun, .) %&gt;%
+#     medianBlur(15) %&gt;%
+#     simpleBlobDetector(max_area = Inf, min_area = 10, blob_color = 255,
+#                        filter_by_convexity = FALSE, 
+#                        filter_by_inertia = FALSE, min_threshold = 0) %&gt;%
+#     mutate(color = color)
+# } 
+# 
+# # function to draw the rectangles
+# multi_draw &lt;- function(img, blobs) {
+#   if (nrow(blobs) &gt; 0) {
+#     for (i in 1:nrow(blobs)) {
+#       drawRectangle(img, 
+#                     blobs$x[i] - 1 + blobs$size[i], 
+#                     blobs$y[i] - 1 + blobs$size[i],
+#                     blobs$x[i] - 1 - blobs$size[i], 
+#                     blobs$y[i] - 1 - blobs$size[i], 
+#                     thickness = 5, color = blobs$color[1])
+#     }
+#   }
+# }
+# 
+# # define the colors to be detected
+# blue &lt;- function(b, g, r) b &gt; 150 &amp; r &lt; 200 &amp; g &lt; 200
+# green &lt;- function(b, g, r) g &gt; 150 &amp; b &lt; 200 &amp; r &lt; 200
+# orange &lt;- function(b, g, r)  g &gt; 150 &amp; b &lt; 150 &amp; r &gt; 150
+# 
+# # set the path to save the video and initialize the video writer
+# path_to_video &lt;- paste0(&quot;/Users/shabdul/DemoVideo.mp4&quot;)
+# my_writer &lt;- videoWriter(path_to_video, fourcc = &quot;x264&quot;, fps = 30, height = 720, width = 1280)
+# 
+# # start the webcam and display a new window with the live stream
+# my_stream &lt;- stream(0)
+# newDisplay(&quot;Live test&quot;, 360, 640)
+# 
+# while(TRUE) {
+#   img &lt;- readNext(my_stream)
+#   
+#   blue_mms &lt;- blob_fun(img, blue, &quot;blue&quot;)
+#   green_mms &lt;- blob_fun(img, green, &quot;green&quot;)
+#   orange_mms &lt;- blob_fun(img, orange, &quot;orange&quot;)
+#   
+#   multi_draw(img, blue_mms)
+#   multi_draw(img, green_mms)
+#   multi_draw(img, orange_mms)
+#   display(img, &quot;Live test&quot;, 25, 360, 640)
+#   
+#   # write the stream to the video file
+#    for (i in seq_len(30)) {
+#      writeFrame(my_writer, img)
+#    }
+#   
+# }
+# 
+# # Clean up after the test is complete
+# destroyDisplay(&quot;Live test&quot;)
+# release(my_stream)
+# release(my_writer)</code></pre>
+<p>If you have made it this far, then, here is a funny clip from the TV series “Silicon Valley” that prompted me to give this a shot.</p>
+<p>Enjoy it :)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vIci3C4JkL0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+</div>
+
+    </div>
+
+    <div class="disqus">
+        
+    </div>
+
+<div class="container has-text-centered top-pad">
+<hr>
+<a href="/blog/tesseract/#top"><i class="fa fa-arrow-up"></i></a>
+<hr>
+</div>
+
+<div class="section" id="footer">
+    <div class="container has-text-centered">
+        
+        
+        
+    </div>
+</div>
+
+</div>
+</div>
+
+
+<script>
+$('a[href^="\/blog\/tesseract\/#"]').click(function(e) {
+    e.preventDefault();
+    var target = this.hash;
+    $('html, body').animate({
+    scrollTop: $(target).offset().top
+    }, 500);
+    return false;
+})
+</script>
+
+</body>

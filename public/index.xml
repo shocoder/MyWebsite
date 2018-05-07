@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shoaib&#39;s Home</title>
+    <link>/</link>
+    <description>Recent content on Shoaib&#39;s Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Nov 2017 12:21:21 -0500</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pictures</title>
+      <link>/projects/photography/</link>
+      <pubDate>Mon, 13 Nov 2017 12:21:21 -0500</pubDate>
+      
+      <guid>/projects/photography/</guid>
+      <description>Sometimes I take pictures. I hate cats.
+Plants Temporal range: Mesoproterozoic–present Had&amp;rsquo;nArcheanProterozoicPha. Diversity of plants image version 5.png Scientific classification Domain: Eukaryota (unranked): Archaeplastida Kingdom: Plantae sensu Copeland, 1956 Divisions Chlorokybophyta Mesostigmatophyta Chlorobionta Kenrick &amp;amp; Crane 1997 Chlorophyta Streptobionta Kenrick &amp;amp; Crane 1997 Klebsormidiophyta Charophyta (stoneworts) ?Chaetosphaeridiales Coleochaetophyta Zygnematophyta Embryobiotes Kenrick &amp;amp; Crane 1997(land plants) Marchantiophyta Bryophyta Anthocerotophyta †Horneophyta †Aglaophyta Tracheophyta (vascular plants) Synonyms Plants are mainly multicellular, predominantly photosynthetic eukaryotes of the kingdom Plantae.</description>
+    </item>
+    
+    <item>
+      <title>Plants</title>
+      <link>/projects/design/</link>
+      <pubDate>Mon, 13 Nov 2017 12:21:16 -0500</pubDate>
+      
+      <guid>/projects/design/</guid>
+      <description>I love plants. Explore! 💪
+Plants Temporal range: Mesoproterozoic–present Had&amp;rsquo;nArcheanProterozoicPha. Diversity of plants image version 5.png Scientific classification Domain: Eukaryota (unranked): Archaeplastida Kingdom: Plantae sensu Copeland, 1956 Divisions Chlorokybophyta Mesostigmatophyta Chlorobionta Kenrick &amp;amp; Crane 1997 Chlorophyta Streptobionta Kenrick &amp;amp; Crane 1997 Klebsormidiophyta Charophyta (stoneworts) ?Chaetosphaeridiales Coleochaetophyta Zygnematophyta Embryobiotes Kenrick &amp;amp; Crane 1997(land plants) Marchantiophyta Bryophyta Anthocerotophyta †Horneophyta †Aglaophyta Tracheophyta (vascular plants) Synonyms Plants are mainly multicellular, predominantly photosynthetic eukaryotes of the kingdom Plantae.</description>
+    </item>
+    
+    <item>
+      <title>Writing</title>
+      <link>/projects/writing/</link>
+      <pubDate>Mon, 13 Nov 2017 12:21:11 -0500</pubDate>
+      
+      <guid>/projects/writing/</guid>
+      <description>Not a huge fan of writing&amp;hellip;..
+Plants Temporal range: Mesoproterozoic–present Had&amp;rsquo;nArcheanProterozoicPha. Diversity of plants image version 5.png Scientific classification Domain: Eukaryota (unranked): Archaeplastida Kingdom: Plantae sensu Copeland, 1956 Divisions Chlorokybophyta Mesostigmatophyta Chlorobionta Kenrick &amp;amp; Crane 1997 Chlorophyta Streptobionta Kenrick &amp;amp; Crane 1997 Klebsormidiophyta Charophyta (stoneworts) ?Chaetosphaeridiales Coleochaetophyta Zygnematophyta Embryobiotes Kenrick &amp;amp; Crane 1997(land plants) Marchantiophyta Bryophyta Anthocerotophyta †Horneophyta †Aglaophyta Tracheophyta (vascular plants) Synonyms Plants are mainly multicellular, predominantly photosynthetic eukaryotes of the kingdom Plantae.</description>
+    </item>
+    
+    <item>
+      <title>OCR and Object Recognition using Tesseract and RVision</title>
+      <link>/blog/tesseract/</link>
+      <pubDate>Mon, 07 May 2018 12:04:16 -0500</pubDate>
+      
+      <guid>/blog/tesseract/</guid>
+      <description>In this post, I intend to share my experience working with a couple of very interesting libraries in R and help you explore some of their features such as image to text translation and also building a simple ‘color based’ object detection program
+Here are the libraries I used for some experiments that follow
+Tesseract - A library used to perform Optical character recognition or OCR (https://github.com/ropensci/tesseract) RVision - A basic computer vision library which is fairly new and still in development (https://github.</description>
+    </item>
+    
+    <item>
+      <title>Is age just a number for strikers in world football?</title>
+      <link>/blog/fifa-strikers/</link>
+      <pubDate>Sun, 01 Apr 2018 12:04:16 -0500</pubDate>
+      
+      <guid>/blog/fifa-strikers/</guid>
+      <description>Premise.. Recently, I recently came across a very interesting dataset on Kaggle which contains attributes of various world footballers. As a huge fan of strikers like Didier Drogba, Diego Forlan and Ronaldo (the Brazilian one) - I decided to explore the impact of age on the attributes of center forwards or strikers who are nearing the end of their careers or to say the least, dont qualify as ‘youngsters’ anymore.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>/contact/</link>
+      <pubDate>Thu, 09 Mar 2017 13:23:28 +0800</pubDate>
+      
+      <guid>/contact/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Thu, 09 Mar 2017 13:19:25 +0800</pubDate>
+      
+      <guid>/about/</guid>
+      <description>I’m a Data Analyst at Copart, a provider of online vehicle auction and remarketing services across the world. My interests include data analysis, machine learning, business strategy, database development and programming in R, SQL and Java.
+I previously worked as a consultant for Microsoft, and received a Masters degree in Information Technology Management from the University of Texas at Dallas.
+Hobbies  Building websites Kickboxing Gaming  About This Site This site is powered by RBlogdown, an amazing package built by Yihui Xie and uses the Hugo theme &amp;ldquo;Introduction&amp;rdquo; created by Vicky Lai.</description>
+    </item>
+    
+  </channel>
+</rss>
