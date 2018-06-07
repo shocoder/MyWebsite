@@ -1,0 +1,212 @@
+---
+title: "Beginners Guide: Shell Commands for Data Science"
+author: "Shoaib"
+date: 2018-06-07
+output: html_document
+---
+
+![](/img/script_program_wallpaper.jpg)
+
+
+A major part of data science is the process of performing Exploratory Data Analysis (EDA)
+
+In this short article, I wish to highlight some powerful and basic commands that you can run right from your Shell to explore data without having to import it into tools like Excel, or a database or even R/Python environments. Shell is a UNIX term for the interactive user interface with an operating system. 
+
+The sample Dataset used can be found [here](https://www.briandunning.com/sample-data/)
+
+It has 500 rows of customer records with the following columns first_name, last_name, company_name, address, city, county, state, zip, phone1, phone2, email, web
+
+For ease of demonstration, let’s call this file ‘input.csv’ which was loaded into a database as a table called ‘input’ and was also loaded as a dataframe called ‘input’ in an R session
+
+
+# **Head**
+
+This is a shell command used to capture a quick snapshot of the data. It gives you the first n rows of the file.
+In the command below, is set to 20
+
+**Shell**
+
+```head -20 input.csv```
+
+**SQL Equivalent**
+
+```-- Import the csv into a table named ‘input’```
+
+```-- to view first 20 rows of the csv```
+
+```select * from input fetch first 20 rows only```
+
+**R Equivalent**
+
+```# run the read.csv command to load the csv into R session```
+
+```# input <- read.csv(file="input.csv", header=TRUE, sep=",")```
+
+```# to view first 20 rows of the csv```
+
+```head(input,20)```
+
+# **WC**
+
+By definition, The wc utility displays the number of lines, words, and bytes contained in each input file
+
+Let’s try to read the number of rows and columns within the file using the wc command
+
+**Shell**
+
+```# to get the row count```
+
+```cat input.csv | wc -l```
+
+```# to get the column count```
+
+```head -1 input.csv | awk -F, '{print NF}'```
+
+**SQL Equivalent**
+
+```--  to get the row count```
+
+```SELECT count(*) from input```
+
+```-- to get the column count```
+
+```SELECT count(*) ```
+
+```FROM information_schema.columns```
+
+```WHERE table_name = 'input'```
+
+**R Equivalent**
+
+```# to get the row count```
+
+```nrow(input)```
+
+```# to get the column count```
+
+```ncol(input)```
+
+
+# **Grep**
+
+By definition, the grep utility searches any given input files, selecting lines that match one or more patterns.
+
+Let’s run this command to return the number of rows that contain company name starting with the characters “Wells” 
+
+**Shell command**
+
+```cut -d"," f3 input.csv|grep -c Wells  input.csv```
+
+**SQL Equivalent**
+
+```Select count(company_name)```
+
+```From input```
+
+```Where company_name like ‘Wells%’```
+
+**R Equivalent**
+
+```nrow(subset(input, regexpr("^Wells", input$company_name) > 0))```
+
+
+# **Output Redirection**
+
+Output redirection using the ‘>’ operator is a really fast way of filtering csv or txt files.
+
+Lets try to use this operator to extract all rows with the word “TX” present in any column of the file input.csv into another csv called TX_output.csv
+
+**Shell**
+
+```grep "TX" input.csv > TX_output.csv```
+
+**SQL Equivalent**
+
+Since traditional SQL does provide system functions to perform this. We will have to write a function or stored procedure to perform this operation. Another alternative is using a mammoth query with multiple OR conditions as shown below. 
+
+```# This query writes the output data to a table called ‘TX_output’```
+
+```INSERT INTO TX_output```
+
+```SELECT first_name, last_name, company_name, address, city, county,state,zip,phone1	phone2,email,web```
+
+```FROM input```
+
+```WHERE ```
+
+```first_name = ‘TX’```
+
+```OR last_name = ‘TX’```
+
+```OR company_name = ‘TX’```
+
+```OR address = ‘TX’```
+
+```OR city = ‘TX’ OR county _name = ‘TX’```
+
+```OR state = ‘TX’```
+
+```OR zip = ‘TX’```
+
+```OR phone1 = ‘TX’```
+
+```OR phone2 = ‘TX’```
+
+```OR email  = ‘TX’```
+
+```OR email  = ‘TX’```
+
+```OR web = ‘TX’```
+
+**R Equivalent**
+
+```Tx_rows <- subset(input, regexpr("TX",input) > 0)```
+
+```write.csv(input,file="TX_output.csv")```
+
+
+# **Other useful commands**
+
+1)	ls = list files and folders
+2)  cd = change directory
+3)  man = shows manual (RTFM)
+4)  history = shows history of commands
+5)  cat = show content of file
+6)  kill = kill a process
+7)  top = Dynamic process list
+
+A good cheat sheet for unix commands can be found [here](https://learncodethehardway.org/unix/bash_cheat_sheet.pdf)
+
+# **Other Command line tools**
+
+Apart from the preliminary EDA mentioned above. Here is a short list of tasks that can be performed using various Command line tools
+
+1)	Querying relational databases
+2)	Calling Web APIs or downloading data from the internet
+3)	Creating Visualizations
+4)	Parallel and Distributed processing
+5)	Modelling data using Weka, SciKit-Learn and BigML
+
+
+# **Conclusion**
+
+For most of the data nerds, writing shell commands may not be the most enjoyable thing to do, but a few major gains in performance simply cannot be overlooked. A very interesting study to compare performance of UNIX tools vs. a DBMS can be found  [here](https://pdfs.semanticscholar.org/0000/e6ae7062368569bbc1300005f97ddb90dd68.pdf)
+
+Shell commands like grep outperform the various dbms when dealing with single relation queries without indexes. But what isn’t surprising is that the dbms beats grep when dealing with indexed data and multiple joins.
+
+In conclusion, if you deal with data very frequently, then I believe having a strong arsenal of Shell commands can really help in a lot of situations ranging from speeding up a memory hogging process to automating a task using a bash script created using Nano text editor.
+
+And who doesn’t like writing fewer lines of code with lightning fast performance, when possible.
+
+# **Good reads**
+
+Data Science at the Command Line 
+https://www.datascienceatthecommandline.com/chapter-9-modeling-data.html#calling-the-api
+
+Working with CSVs in Command line 
+http://bconnelly.net/working-with-csvs-on-the-command-line/
+
+
+
+
+

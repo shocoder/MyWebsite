@@ -6,10 +6,20 @@
     <description>Recent content in Blogs on Shoaib&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 May 2018 12:04:16 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 07 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Beginners Guide: Shell Commands for Data Science</title>
+      <link>/blog/shellcommands/</link>
+      <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/shellcommands/</guid>
+      <description>A major part of data science is the process of performing Exploratory Data Analysis (EDA)
+In this short article, I wish to highlight some powerful and basic commands that you can run right from your Shell to explore data without having to import it into tools like Excel, or a database or even R/Python environments. Shell is a UNIX term for the interactive user interface with an operating system.</description>
+    </item>
     
     <item>
       <title>OCR and Object Recognition using Tesseract and RVision</title>

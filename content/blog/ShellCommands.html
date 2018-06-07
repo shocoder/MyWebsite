@@ -1,0 +1,133 @@
+---
+title: "Beginners Guide: Shell Commands for Data Science"
+author: "Shoaib"
+date: 2018-06-07
+output: html_document
+---
+
+
+
+<div class="figure">
+<img src="/img/script_program_wallpaper.jpg" />
+
+</div>
+<p>A major part of data science is the process of performing Exploratory Data Analysis (EDA)</p>
+<p>In this short article, I wish to highlight some powerful and basic commands that you can run right from your Shell to explore data without having to import it into tools like Excel, or a database or even R/Python environments. Shell is a UNIX term for the interactive user interface with an operating system.</p>
+<p>The sample Dataset used can be found <a href="https://www.briandunning.com/sample-data/">here</a></p>
+<p>It has 500 rows of customer records with the following columns first_name, last_name, company_name, address, city, county, state, zip, phone1, phone2, email, web</p>
+<p>For ease of demonstration, let’s call this file ‘input.csv’ which was loaded into a database as a table called ‘input’ and was also loaded as a dataframe called ‘input’ in an R session</p>
+<div id="head" class="section level1">
+<h1><strong>Head</strong></h1>
+<p>This is a shell command used to capture a quick snapshot of the data. It gives you the first n rows of the file. In the command below, is set to 20</p>
+<p><strong>Shell</strong></p>
+<p><code>head -20 input.csv</code></p>
+<p><strong>SQL Equivalent</strong></p>
+<p><code>-- Import the csv into a table named ‘input’</code></p>
+<p><code>-- to view first 20 rows of the csv</code></p>
+<p><code>select * from input fetch first 20 rows only</code></p>
+<p><strong>R Equivalent</strong></p>
+<p><code># run the read.csv command to load the csv into R session</code></p>
+<p><code># input &lt;- read.csv(file=&quot;input.csv&quot;, header=TRUE, sep=&quot;,&quot;)</code></p>
+<p><code># to view first 20 rows of the csv</code></p>
+<p><code>head(input,20)</code></p>
+</div>
+<div id="wc" class="section level1">
+<h1><strong>WC</strong></h1>
+<p>By definition, The wc utility displays the number of lines, words, and bytes contained in each input file</p>
+<p>Let’s try to read the number of rows and columns within the file using the wc command</p>
+<p><strong>Shell</strong></p>
+<p><code># to get the row count</code></p>
+<p><code>cat input.csv | wc -l</code></p>
+<p><code># to get the column count</code></p>
+<p><code>head -1 input.csv | awk -F, '{print NF}'</code></p>
+<p><strong>SQL Equivalent</strong></p>
+<p><code>--  to get the row count</code></p>
+<p><code>SELECT count(*) from input</code></p>
+<p><code>-- to get the column count</code></p>
+<p><code>SELECT count(*)</code></p>
+<p><code>FROM information_schema.columns</code></p>
+<p><code>WHERE table_name = 'input'</code></p>
+<p><strong>R Equivalent</strong></p>
+<p><code># to get the row count</code></p>
+<p><code>nrow(input)</code></p>
+<p><code># to get the column count</code></p>
+<p><code>ncol(input)</code></p>
+</div>
+<div id="grep" class="section level1">
+<h1><strong>Grep</strong></h1>
+<p>By definition, the grep utility searches any given input files, selecting lines that match one or more patterns.</p>
+<p>Let’s run this command to return the number of rows that contain company name starting with the characters “Wells”</p>
+<p><strong>Shell command</strong></p>
+<p><code>cut -d&quot;,&quot; f3 input.csv|grep -c Wells  input.csv</code></p>
+<p><strong>SQL Equivalent</strong></p>
+<p><code>Select count(company_name)</code></p>
+<p><code>From input</code></p>
+<p><code>Where company_name like ‘Wells%’</code></p>
+<p><strong>R Equivalent</strong></p>
+<p><code>nrow(subset(input, regexpr(&quot;^Wells&quot;, input$company_name) &gt; 0))</code></p>
+</div>
+<div id="output-redirection" class="section level1">
+<h1><strong>Output Redirection</strong></h1>
+<p>Output redirection using the ‘&gt;’ operator is a really fast way of filtering csv or txt files.</p>
+<p>Lets try to use this operator to extract all rows with the word “TX” present in any column of the file input.csv into another csv called TX_output.csv</p>
+<p><strong>Shell</strong></p>
+<p><code>grep &quot;TX&quot; input.csv &gt; TX_output.csv</code></p>
+<p><strong>SQL Equivalent</strong></p>
+<p>Since traditional SQL does provide system functions to perform this. We will have to write a function or stored procedure to perform this operation. Another alternative is using a mammoth query with multiple OR conditions as shown below.</p>
+<p><code># This query writes the output data to a table called ‘TX_output’</code></p>
+<p><code>INSERT INTO TX_output</code></p>
+<p><code>SELECT first_name, last_name, company_name, address, city, county,state,zip,phone1   phone2,email,web</code></p>
+<p><code>FROM input</code></p>
+<p><code>WHERE</code></p>
+<p><code>first_name = ‘TX’</code></p>
+<p><code>OR last_name = ‘TX’</code></p>
+<p><code>OR company_name = ‘TX’</code></p>
+<p><code>OR address = ‘TX’</code></p>
+<p><code>OR city = ‘TX’ OR county _name = ‘TX’</code></p>
+<p><code>OR state = ‘TX’</code></p>
+<p><code>OR zip = ‘TX’</code></p>
+<p><code>OR phone1 = ‘TX’</code></p>
+<p><code>OR phone2 = ‘TX’</code></p>
+<p><code>OR email  = ‘TX’</code></p>
+<p><code>OR email  = ‘TX’</code></p>
+<p><code>OR web = ‘TX’</code></p>
+<p><strong>R Equivalent</strong></p>
+<p><code>Tx_rows &lt;- subset(input, regexpr(&quot;TX&quot;,input) &gt; 0)</code></p>
+<p><code>write.csv(input,file=&quot;TX_output.csv&quot;)</code></p>
+</div>
+<div id="other-useful-commands" class="section level1">
+<h1><strong>Other useful commands</strong></h1>
+<ol style="list-style-type: decimal">
+<li>ls = list files and folders</li>
+<li>cd = change directory</li>
+<li>man = shows manual (RTFM)</li>
+<li>history = shows history of commands</li>
+<li>cat = show content of file</li>
+<li>kill = kill a process</li>
+<li>top = Dynamic process list</li>
+</ol>
+<p>A good cheat sheet for unix commands can be found <a href="https://learncodethehardway.org/unix/bash_cheat_sheet.pdf">here</a></p>
+</div>
+<div id="other-command-line-tools" class="section level1">
+<h1><strong>Other Command line tools</strong></h1>
+<p>Apart from the preliminary EDA mentioned above. Here is a short list of tasks that can be performed using various Command line tools</p>
+<ol style="list-style-type: decimal">
+<li>Querying relational databases</li>
+<li>Calling Web APIs or downloading data from the internet</li>
+<li>Creating Visualizations</li>
+<li>Parallel and Distributed processing</li>
+<li>Modelling data using Weka, SciKit-Learn and BigML</li>
+</ol>
+</div>
+<div id="conclusion" class="section level1">
+<h1><strong>Conclusion</strong></h1>
+<p>For most of the data nerds, writing shell commands may not be the most enjoyable thing to do, but a few major gains in performance simply cannot be overlooked. A very interesting study to compare performance of UNIX tools vs. a DBMS can be found <a href="https://pdfs.semanticscholar.org/0000/e6ae7062368569bbc1300005f97ddb90dd68.pdf">here</a></p>
+<p>Shell commands like grep outperform the various dbms when dealing with single relation queries without indexes. But what isn’t surprising is that the dbms beats grep when dealing with indexed data and multiple joins.</p>
+<p>In conclusion, if you deal with data very frequently, then I believe having a strong arsenal of Shell commands can really help in a lot of situations ranging from speeding up a memory hogging process to automating a task using a bash script created using Nano text editor.</p>
+<p>And who doesn’t like writing fewer lines of code with lightning fast performance, when possible.</p>
+</div>
+<div id="good-reads" class="section level1">
+<h1><strong>Good reads</strong></h1>
+<p>Data Science at the Command Line <a href="https://www.datascienceatthecommandline.com/chapter-9-modeling-data.html#calling-the-api" class="uri">https://www.datascienceatthecommandline.com/chapter-9-modeling-data.html#calling-the-api</a></p>
+<p>Working with CSVs in Command line <a href="http://bconnelly.net/working-with-csvs-on-the-command-line/" class="uri">http://bconnelly.net/working-with-csvs-on-the-command-line/</a></p>
+</div>
